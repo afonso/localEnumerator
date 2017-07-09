@@ -796,3 +796,7 @@ if [ "$compiler" ]; then
  else
   :
 fi
+
+#Comprobación manual - Listado de archivos sensibles, que podamos leer/modificar, etc.
+echo -e "\e[00;31mPodemos leer/escribir archivos sensibles:\e[00m" |tee -a $report 2>/dev/null; ls -la /etc/passwd 2>/dev/null |tee -a $report 2>/dev/null; ls -la /etc/group 2>/dev/null |tee -a $report 2>/dev/null; ls -la /etc/profile 2>/dev/null; ls -la /etc/shadow 2>/dev/null |tee -a $report 2>/dev/null; ls -la /etc/master.passwd 2>/dev/null |tee -a $report 2>/dev/null
+echo -e "\n" |tee -a $report 2>/dev/null
