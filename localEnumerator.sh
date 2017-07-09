@@ -146,3 +146,12 @@ if [ "$loggedonusrs" ]; then
 else
   :
 fi
+
+#Listado de todas las id's y grupos respectivos (group memberships)
+grpinfo=`for i in $(cat /etc/passwd 2>/dev/null| cut -d":" -f1 2>/dev/null);do id $i;done 2>/dev/null`
+if [ "$grpinfo" ]; then
+  echo -e "\e[00;31mGroup members:\e[00m\n$grpinfo" |tee -a $report 2>/dev/null
+  echo -e "\n" |tee -a $report 2>/dev/null
+else
+  :
+fi
