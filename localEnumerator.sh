@@ -705,3 +705,54 @@ if [ "$mysqlconnect" ]; then
 else
   :
 fi
+
+#Detalles de versión mysql
+mysqlconnectnopass=`mysqladmin -uroot version 2>/dev/null`
+if [ "$mysqlconnectnopass" ]; then
+  echo -e "\e[00;33m***Nos podemos conectar al servicio local MYSQL como root sin necesidad de contraseña***\e[00m\n$mysqlconnectnopass" |tee -a $report 2>/dev/null
+  echo -e "\n" |tee -a $report 2>/dev/null
+else
+  :
+fi
+
+#Detalles postgres - En caso de que esté instalado
+postgver=`psql -V 2>/dev/null`
+if [ "$postgver" ]; then
+  echo -e "\e[00;31mVersión Postgres:\e[00m\n$postgver" |tee -a $report 2>/dev/null
+  echo -e "\n" |tee -a $report 2>/dev/null
+else
+  :
+fi
+
+#Comprobar si alguna contraseña postgres existe y conecta con la DB 'template0'
+postcon1=`psql -U postgres template0 -c 'select version()' 2>/dev/null | grep version`
+if [ "$postcon1" ]; then
+  echo -e "\e[00;33m***Nos podemos conectar a Postgres DB 'template0' como usuario 'postgres' sin contraseña***:\e[00m\n$postcon1" |tee -a $report 2>/dev/null
+  echo -e "\n" |tee -a $report 2>/dev/null
+else
+  :
+fi
+
+postcon11=`psql -U postgres template1 -c 'select version()' 2>/dev/null | grep version`
+if [ "$postcon11" ]; then
+  echo -e "\e[00;33m***Nos podemos conectar a Postgres DB 'template1' como usuario 'postgres' sin contraseña***:\e[00m\n$postcon11" |tee -a $report 2>/dev/null
+  echo -e "\n" |tee -a $report 2>/dev/null
+else
+  :
+fi
+
+postcon2=`psql -U pgsql template0 -c 'select version()' 2>/dev/null | grep version`
+if [ "$postcon2" ]; then
+  echo -e "\e[00;33m***Nos podemos conectar a Postgres DB 'template0' como usuario 'psql' sin contraseña***:\e[00m\n$postcon2" |tee -a $report 2>/dev/null
+  echo -e "\n" |tee -a $report 2>/dev/null
+else
+  :
+fi
+
+postcon22=`psql -U pgsql template1 -c 'select version()' 2>/dev/null | grep version`
+if [ "$postcon22" ]; then
+  echo -e "\e[00;33m***Nos podemos conectar a Postgres DB 'template1' como usuario 'psql' sin contraseña***:\e[00m\n$postcon22" |tee -a $report 2>/dev/null
+  echo -e "\n" |tee -a $report 2>/dev/null
+else
+  :
+fi
