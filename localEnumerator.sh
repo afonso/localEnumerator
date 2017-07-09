@@ -117,3 +117,23 @@ if [ "$hostnamed" ]; then
 else
   :
 fi
+
+echo -e "\e[00;33m### Usuario/Grupo ##########################################\e[00m" |tee -a $report 2>/dev/null
+
+#Detalles del usuario actual
+currusr=`id 2>/dev/null`
+if [ "$currusr" ]; then
+  echo -e "\e[00;31mInformación actual usuario/grupo:\e[00m\n$currusr" |tee -a $report 2>/dev/null
+  echo -e "\n" |tee -a $report 2>/dev/null
+else
+  :
+fi
+
+#Información de los últimos usuarios logeados en el sistema
+lastlogedonusrs=`lastlog 2>/dev/null |grep -v "Never" 2>/dev/null`
+if [ "$lastlogedonusrs" ]; then
+  echo -e "\e[00;31mUsuarios que se han conectado recientemente al sistema:\e[00m\n$lastlogedonusrs" |tee -a $report 2>/dev/null
+  echo -e "\n" |tee -a $report 2>/dev/null
+else
+  :
+fi
