@@ -63,9 +63,9 @@ else
 fi
 
 if [ "$thorough" ]; then
-	echo "Prueba minuciosa = activada" |tee -a $report 2>/dev/null
+	echo "Escaneo profundo = activado" |tee -a $report 2>/dev/null
 else
-	echo "Prueba minuciosa = desactivada" |tee -a $report 2>/dev/null
+	echo "Escaneo profundo = desactivado" |tee -a $report 2>/dev/null
 fi
 
 sleep 2
@@ -354,3 +354,30 @@ else
 fi
 
 echo -e "\e[00;33m### AMBIENTAL #######################################\e[00m" |tee -a $report 2>/dev/null
+
+#Información del ambiente
+envinfo=`env 2>/dev/null | grep -v 'LS_COLORS' 2>/dev/null`
+if [ "$envinfo" ]; then
+  echo -e "\e[00;31m Información del ambiente:\e[00m\n$envinfo" |tee -a $report 2>/dev/null
+  echo -e "\n" |tee -a $report 2>/dev/null
+else
+  :
+fi
+
+#Configuración de ruta actual
+pathinfo=`echo $PATH 2>/dev/null`
+if [ "$pathinfo" ]; then
+  echo -e "\e[00;31mInformación de la ruta:\e[00m\n$pathinfo" |tee -a $report 2>/dev/null
+  echo -e "\n" |tee -a $report 2>/dev/null
+else
+  :
+fi
+
+#Mostrar shells disponibles
+shellinfo=`cat /etc/shells 2>/dev/null`
+if [ "$shellinfo" ]; then
+  echo -e "\e[00;31mShells Disponibles:\e[00m\n$shellinfo" |tee -a $report 2>/dev/null
+  echo -e "\n" |tee -a $report 2>/dev/null
+else
+  :
+fi
