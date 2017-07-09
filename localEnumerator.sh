@@ -766,7 +766,7 @@ else
   :
 fi
 
-#what account is apache running under
+#Bajo qué cuenta se está ejecutando apache
 apacheusr=`cat /etc/apache2/envvars 2>/dev/null |grep -i 'user\|group' 2>/dev/null |awk '{sub(/.*\export /,"")}1' 2>/dev/null`
 if [ "$apacheusr" ]; then
   echo -e "\e[00;31mConfiguración de usuario de apache:\e[00m\n$apacheusr" |tee -a $report 2>/dev/null
@@ -779,5 +779,20 @@ if [ "$export" ] && [ "$apacheusr" ]; then
   mkdir --parents $format/etc-export/apache2/ 2>/dev/null
   cp /etc/apache2/envvars $format/etc-export/apache2/envvars 2>/dev/null
 else
+  :
+fi
+
+echo -e "\e[00;33m### Archivos interesantes ####################################\e[00m" |tee -a $report 2>/dev/null
+
+#Comprobar si varios archivos están instalados
+echo -e "\e[00;31mLocalización de archivos de utilidad:\e[00m" |tee -a $report 2>/dev/null; which nc 2>/dev/null |tee -a $report 2>/dev/null; which netcat 2>/dev/null |tee -a $report 2>/dev/null; which wget 2>/dev/null |tee -a $report 2>/dev/null; which nmap 2>/dev/null |tee -a $report 2>/dev/null; which gcc 2>/dev/null |tee -a $report 2>/dev/null
+echo -e "\n" |tee -a $report 2>/dev/null
+
+#Búsqueda limitada para compiladores instalados
+compiler=`dpkg --list 2>/dev/null| grep compiler |grep -v decompiler 2>/dev/null && yum list installed 'gcc*' 2>/dev/null| grep gcc 2>/dev/null`
+if [ "$compiler" ]; then
+  echo -e "\e[00;31mCompiladores instalados:\e[00m\n$compiler" |tee -a $report 2>/dev/null
+  echo -e "\n" |tee -a $report 2>/dev/null
+ else
   :
 fi
