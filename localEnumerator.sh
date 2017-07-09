@@ -540,7 +540,7 @@ else
   :
 fi
 
-echo -e "\e[00;33m### Servicios #############################################\e\n[00m" |tee -a $report 2>/dev/null
+echo -e "\e[00;33m### Servicios #############################################\e[00m\n" |tee -a $report 2>/dev/null
 
 #Procesos corriendo
 psaux=`ps aux 2>/dev/null`

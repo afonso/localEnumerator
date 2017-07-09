@@ -1,0 +1,1043 @@
+
+[00;31m#####################################################################[00m
+[00;31m#[00m [00;33mEnumeración Local de Linux & Script para Elevación de Privilegios[00m [00;31m#[00m
+[00;31m#####################################################################[00m
+[00;33m# www.mundohackers.es[00m
+
+Información de depuración
+--------------------------
+
+Nombre del informe = miInforme-09-07-17
+Localización de exportación = /home/user/Desktop
+Escaneo profundo = desactivado
+
+
+dom jul  9 21:10:46 WEST 2017
+[00m
+
+[00;33m### SISTEMA ##############################################[00m
+[00;31mInformación del kernel:[00m
+Linux parrot 4.9.0-parrot13-amd64 #1 SMP Parrot 4.9.13-1parrot1 (2017-03-02) x86_64 GNU/Linux
+
+
+[00;31mInformación del kernel (continuado):[00m
+Linux version 4.9.0-parrot13-amd64 (parrot-devel@lists.parrotsec.org) (gcc version 6.3.0 20170205 (Debian 6.3.0-6) ) #1 SMP Parrot 4.9.13-1parrot1 (2017-03-02)
+
+
+[00;31mInformación de liberación específica:[00m
+DISTRIB_ID=Parrot
+DISTRIB_RELEASE=3.6
+DISTRIB_CODENAME=JollyRoger
+DISTRIB_DESCRIPTION="Parrot 3.6 - JollyRoger"
+PRETTY_NAME="Parrot GNU/Linux 3.6 JollyRoger"
+NAME="Parrot GNU/Linux"
+ID=parrot
+VERSION="3.6 (JollyRoger)"
+VERSION_ID="3.6"
+ID_LIKE=debian
+ANSI_COLOR="1;31"
+HOME_URL="https://www.parrotsec.org/"
+SUPPORT_URL="https://community.parrotsec.org/"
+BUG_REPORT_URL="https://dev.parrotsec.org/"
+
+
+[00;31mHostname:[00m
+parrot
+
+
+[00;33m### Usuario/Grupo ##########################################[00m
+[00;31mInformación actual usuario/grupo:[00m
+uid=1001(user) gid=1001(user) grupos=1001(user),4(adm),20(dialout),21(fax),24(cdrom),25(floppy),26(tape),27(sudo),29(audio),30(dip),44(video),46(plugdev),108(netdev),139(lpadmin),142(sambashare)
+
+
+[00;31mUsuarios que se han conectado recientemente al sistema:[00m
+Nombre           Puerto   De               Último
+root                                       **Nunca ha accedido**
+daemon                                     **Nunca ha accedido**
+bin                                        **Nunca ha accedido**
+sys                                        **Nunca ha accedido**
+sync                                       **Nunca ha accedido**
+games                                      **Nunca ha accedido**
+man                                        **Nunca ha accedido**
+lp                                         **Nunca ha accedido**
+mail                                       **Nunca ha accedido**
+news                                       **Nunca ha accedido**
+uucp                                       **Nunca ha accedido**
+proxy                                      **Nunca ha accedido**
+www-data                                   **Nunca ha accedido**
+backup                                     **Nunca ha accedido**
+list                                       **Nunca ha accedido**
+irc                                        **Nunca ha accedido**
+gnats                                      **Nunca ha accedido**
+nobody                                     **Nunca ha accedido**
+_apt                                       **Nunca ha accedido**
+systemd-timesync                           **Nunca ha accedido**
+systemd-network                            **Nunca ha accedido**
+systemd-resolve                            **Nunca ha accedido**
+systemd-bus-proxy                           **Nunca ha accedido**
+mysql                                      **Nunca ha accedido**
+freerad                                    **Nunca ha accedido**
+epmd                                       **Nunca ha accedido**
+Debian-exim                                **Nunca ha accedido**
+uuidd                                      **Nunca ha accedido**
+rwhod                                      **Nunca ha accedido**
+redsocks                                   **Nunca ha accedido**
+shellinabox                                **Nunca ha accedido**
+postgres                                   **Nunca ha accedido**
+iodine                                     **Nunca ha accedido**
+wmaloader                                  **Nunca ha accedido**
+clamav                                     **Nunca ha accedido**
+miredo                                     **Nunca ha accedido**
+debian-tor                                 **Nunca ha accedido**
+Debian-snmp                                **Nunca ha accedido**
+ntp                                        **Nunca ha accedido**
+stunnel4                                   **Nunca ha accedido**
+sslh                                       **Nunca ha accedido**
+rtkit                                      **Nunca ha accedido**
+dnsmasq                                    **Nunca ha accedido**
+messagebus                                 **Nunca ha accedido**
+arpwatch                                   **Nunca ha accedido**
+redis                                      **Nunca ha accedido**
+usbmux                                     **Nunca ha accedido**
+sshd                                       **Nunca ha accedido**
+couchdb                                    **Nunca ha accedido**
+avahi                                      **Nunca ha accedido**
+geoclue                                    **Nunca ha accedido**
+libvirt-qemu                               **Nunca ha accedido**
+pulse                                      **Nunca ha accedido**
+gnunet                                     **Nunca ha accedido**
+lightdm                                    **Nunca ha accedido**
+king-phisher                               **Nunca ha accedido**
+i2psvc                                     **Nunca ha accedido**
+dradis                                     **Nunca ha accedido**
+beef-xss                                   **Nunca ha accedido**
+user             pts/2    ::1              dom jul  9 08:19:51 +0100 2017
+nm-openvpn                                 **Nunca ha accedido**
+
+
+[00;31mUsuarios logeados actualmente activos:[00m
+ 21:10:46 up 1 day,  6:47,  1 user,  load average: 0,20, 0,30, 0,38
+USER     TTY      FROM             LOGIN@   IDLE   JCPU   PCPU WHAT
+user     tty7     :0               sáb14   30:47m  1:12m  3.23s x-session-manager
+
+
+[00;31mGroup members:[00m
+uid=0(root) gid=0(root) grupos=0(root)
+uid=1(daemon) gid=1(daemon) grupos=1(daemon)
+uid=2(bin) gid=2(bin) grupos=2(bin)
+uid=3(sys) gid=3(sys) grupos=3(sys)
+uid=4(sync) gid=65534(nogroup) grupos=65534(nogroup)
+uid=5(games) gid=60(games) grupos=60(games)
+uid=6(man) gid=12(man) grupos=12(man)
+uid=7(lp) gid=7(lp) grupos=7(lp)
+uid=8(mail) gid=8(mail) grupos=8(mail)
+uid=9(news) gid=9(news) grupos=9(news)
+uid=10(uucp) gid=10(uucp) grupos=10(uucp)
+uid=13(proxy) gid=13(proxy) grupos=13(proxy)
+uid=33(www-data) gid=33(www-data) grupos=33(www-data)
+uid=34(backup) gid=34(backup) grupos=34(backup)
+uid=38(list) gid=38(list) grupos=38(list)
+uid=39(irc) gid=39(irc) grupos=39(irc)
+uid=41(gnats) gid=41(gnats) grupos=41(gnats)
+uid=65534(nobody) gid=65534(nogroup) grupos=65534(nogroup)
+uid=100(_apt) gid=65534(nogroup) grupos=65534(nogroup)
+uid=101(systemd-timesync) gid=102(systemd-timesync) grupos=102(systemd-timesync)
+uid=102(systemd-network) gid=103(systemd-network) grupos=103(systemd-network)
+uid=103(systemd-resolve) gid=104(systemd-resolve) grupos=104(systemd-resolve)
+uid=104(systemd-bus-proxy) gid=105(systemd-bus-proxy) grupos=105(systemd-bus-proxy)
+uid=105(mysql) gid=109(mysql) grupos=109(mysql)
+uid=106(freerad) gid=110(freerad) grupos=110(freerad),42(shadow),114(ssl-cert)
+uid=107(epmd) gid=111(epmd) grupos=111(epmd)
+uid=108(Debian-exim) gid=112(Debian-exim) grupos=112(Debian-exim)
+uid=109(uuidd) gid=115(uuidd) grupos=115(uuidd)
+uid=110(rwhod) gid=65534(nogroup) grupos=65534(nogroup)
+uid=111(redsocks) gid=116(redsocks) grupos=116(redsocks)
+uid=112(shellinabox) gid=117(shellinabox) grupos=117(shellinabox)
+uid=113(postgres) gid=118(postgres) grupos=118(postgres),114(ssl-cert)
+uid=114(iodine) gid=65534(nogroup) grupos=65534(nogroup)
+uid=115(wmaloader) gid=119(wmaloader) grupos=119(wmaloader)
+uid=116(clamav) gid=123(clamav) grupos=123(clamav)
+uid=117(miredo) gid=65534(nogroup) grupos=65534(nogroup)
+uid=118(debian-tor) gid=124(debian-tor) grupos=124(debian-tor)
+uid=119(Debian-snmp) gid=125(Debian-snmp) grupos=125(Debian-snmp)
+uid=120(ntp) gid=126(ntp) grupos=126(ntp)
+uid=121(stunnel4) gid=127(stunnel4) grupos=127(stunnel4)
+uid=122(sslh) gid=128(sslh) grupos=128(sslh)
+uid=123(rtkit) gid=129(rtkit) grupos=129(rtkit)
+uid=124(dnsmasq) gid=65534(nogroup) grupos=65534(nogroup)
+uid=125(messagebus) gid=130(messagebus) grupos=130(messagebus)
+uid=126(arpwatch) gid=132(arpwatch) grupos=132(arpwatch)
+uid=127(redis) gid=133(redis) grupos=133(redis)
+uid=128(usbmux) gid=46(plugdev) grupos=46(plugdev)
+uid=129(sshd) gid=65534(nogroup) grupos=65534(nogroup)
+uid=130(couchdb) gid=135(couchdb) grupos=135(couchdb)
+uid=131(avahi) gid=137(avahi) grupos=137(avahi)
+uid=132(geoclue) gid=138(geoclue) grupos=138(geoclue)
+uid=64055(libvirt-qemu) gid=121(kvm) grupos=121(kvm),64055(libvirt-qemu)
+uid=133(pulse) gid=143(pulse) grupos=143(pulse),29(audio)
+uid=134(gnunet) gid=145(gnunet) grupos=145(gnunet)
+uid=135(lightdm) gid=147(lightdm) grupos=147(lightdm)
+uid=136(king-phisher) gid=148(kpadmins) grupos=148(kpadmins)
+uid=137(i2psvc) gid=149(i2psvc) grupos=149(i2psvc)
+uid=138(dradis) gid=150(dradis) grupos=150(dradis)
+uid=139(beef-xss) gid=151(beef-xss) grupos=151(beef-xss)
+uid=1001(user) gid=1001(user) grupos=1001(user),4(adm),20(dialout),21(fax),24(cdrom),25(floppy),26(tape),27(sudo),29(audio),30(dip),44(video),46(plugdev),108(netdev),139(lpadmin),142(sambashare)
+uid=140(nm-openvpn) gid=153(nm-openvpn) grupos=153(nm-openvpn)
+
+
+[00;31mMuestras de entrada en /etc/passwd (buscando para valores uid 0, 500, 501, 502, 1000, 1001, 1002, 2000, 2001, 2002):[00m
+root:x:0:0:"Probando con Sender",,,:/root:/bin/bash
+user:x:1001:1001:User,,,,:/home/user:/bin/bash
+
+
+[00;31mCuentas superusuario:[00m
+root
+
+
+[00;33m***¡¡Podemos ser sudo sin proporcionar contraseña!!***[00m
+Matching Defaults entries for user on parrot:
+    env_reset, mail_badpass, secure_path=/usr/local/sbin\:/usr/local/bin\:/usr/sbin\:/usr/bin\:/sbin\:/bin
+
+User user may run the following commands on parrot:
+    (ALL : ALL) ALL
+
+
+[00;33m***Podemos leer el directorio home del root***[00m
+total 652K
+drwxr-xr-x  43 root root 4,0K jul  9 15:20 .
+drwxr-xr-x  24 root root 4,0K jul  3 23:56 ..
+drwxr-xr-x   2 root root 4,0K may 20 19:14 .arduino
+drwxr-xr-x   4 root root 4,0K jul  4 00:01 .armitage
+-rw-r--r--   1 root root 2,4K jul  3 23:33 .armitage.prop
+drwxr-xr-x   7 root root 4,0K may 28 21:52 .atom
+-rw-------   1 root root  32K jul  9 15:20 .bash_history
+-rw-------   1 root root    0 jun 30 21:47 .bash_history-04535.tmp
+-rw-------   1 root root    0 jun 30 21:47 .bash_history-04537.tmp
+-rw-r--r--   1 root root   52 mar  7 04:08 .bash_profile
+-rwxr-xr-x   1 root root 4,3K jun 28 02:41 .bashrc
+drwx------   2 root root 4,0K jun 22 17:25 .BurpSuite
+drwx------   8 root root 4,0K jul  7 21:43 .cache
+drwxr-xr-x  26 root root 4,0K jul  8 04:01 .config
+drwx------   3 root root 4,0K may 17 00:14 .dbus
+-rw-r--r--   1 root root   79 may 26 20:59 dead.letter
+drwxr-xr-x   3 root root 4,0K jul  8 22:06 Desktop
+-rwxr-xr-x   1 root root 321K jun  6 01:34 flux_rev-55.backup
+-rwxr-xr-x   1 root root  78K jun  6 01:24 flux_rev-6.backup
+drwx------   2 root root 4,0K jun  9 17:15 .gconf
+drwxr-xr-x   3 root root 4,0K may 16 23:26 .gem
+drwx------   3 root root 4,0K jun  9 17:15 .gnome2
+drwx------   2 root root 4,0K jun  9 17:15 .gnome2_private
+drwx------   5 root root 4,0K jun  2 02:09 .gnupg
+drwxr-xr-x   2 root root 4,0K jul  5 16:03 .golismero
+-rw-r--r--   1 root root   31 may 20 20:33 .gtk-bookmarks
+-rwxr-xr-x   1 root root  573 feb 23 22:01 .gtkrc-2.0
+drwx------   2 root root 4,0K jun  4 17:00 .gvfs
+drwxr-xr-x   2 root root 4,0K jun  6 01:24 handshakes
+drwx------   4 root root 4,0K jul  3 18:21 .hashcat
+drwx------   2 root root 4,0K may 16 22:38 .irssi
+drwxr-xr-x   4 root root 4,0K may 27 21:52 .java
+drwx------   2 root root 4,0K may 19 01:29 .john
+drwx------   2 root root 4,0K jun 13 00:35 .kismet
+-rw-r--r--   1 root root  300 jun  9 16:49 .linssid.prefs
+drwxr-xr-x   3 1000 1000 4,0K may 16 23:06 .local
+drwxr-xr-x   4 root root 4,0K jul  8 01:52 .maltego
+drwx------   4 root root 4,0K jul  7 21:43 .mozilla
+drwxr-xr-x   8 root root 4,0K may 17 19:47 .msf4
+drwxr-xr-x   2 root root 4,0K may 16 22:37 .nano
+drwxr-xr-x   2 root root 4,0K may 27 21:52 .oracle_jre_usage
+drwx------   3 root root 4,0K may 17 19:50 .pki
+-rwxr-xr-x   1 root root  675 feb 23 22:01 .profile
+drwxr-xr-x   2 root root 4,0K jun  1 21:52 Programa_Aircrack
+drwxr-xr-x   2 root root 4,0K jun  6 01:24 pwlog
+-rw-------   1 root root 1,0K jun 18 15:45 .rnd
+drwxr-xr-x   4 root root 4,0K jul  3 18:12 .set
+drwxr-xr-x   3 root root 4,0K may 20 19:14 sketchbook
+drwxr-xr-x   3 root root 4,0K may 17 18:53 .sqlmap
+drwx------   2 root root 4,0K jul  8 16:00 .ssh
+drwxr-xr-x   5 root root 4,0K may 16 23:06 Templates
+drwxr-xr-x   4 root root 4,0K jul  8 03:43 VirtualBox VMs
+-rw-r--r--   1 root root  291 jul  3 17:48 .wget-hsts
+drwxr-xr-x   4 root root 4,0K jun 16 19:43 .wine
+drwxr-xr-x   4 root root 4,0K may 18 16:53 yowsup
+drwxr-xr-x 203 root root 4,0K jul  6 00:56 .yowsup
+drwxr-xr-x  11 root root 4,0K may 28 18:45 .ZAP
+drwxr-xr-x   2 root root 4,0K jul  8 17:31 .zenmap
+
+
+[00;31mPermisos del directorio /home:[00m
+total 12K
+drwxr-xr-x  3 root root 4,0K may 26 21:08 .
+drwxr-xr-x 24 root root 4,0K jul  3 23:56 ..
+drwxr-xr-x 42 user user 4,0K jul  9 21:00 user
+
+
+[00;33m### AMBIENTAL #######################################[00m
+[00;31mInformación del ambiente:[00m
+LANG=es_ES.UTF-8
+GDM_LANG=es_ES.utf8
+DISPLAY=:0.0
+OLDPWD=/home/user
+GTK_OVERLAY_SCROLLING=0
+COLORTERM=truecolor
+XDG_VTNR=7
+SSH_AUTH_SOCK=/run/user/1001/keyring/ssh
+XDG_SESSION_ID=2
+XDG_GREETER_DATA_DIR=/var/lib/lightdm/data/user
+USER=user
+DESKTOP_SESSION=lightdm-xsession
+PWD=/home/user/Desktop/localEnumerator
+HOME=/home/user
+SSH_AGENT_PID=1470
+QT_ACCESSIBILITY=1
+XDG_SESSION_TYPE=x11
+XDG_DATA_DIRS=/usr/share/mate:/usr/local/share/:/usr/share/
+MATE_DESKTOP_SESSION_ID=this-is-deprecated
+XDG_SESSION_DESKTOP=lightdm-xsession
+VTE_VERSION=4601
+SHELL=/bin/bash
+TERM=xterm
+XDG_SEAT_PATH=/org/freedesktop/DisplayManager/Seat0
+XDG_CURRENT_DESKTOP=MATE
+GPG_AGENT_INFO=/run/user/1001/gnupg/S.gpg-agent:0:1
+QT_LINUX_ACCESSIBILITY_ALWAYS_ON=1
+XDG_SEAT=seat0
+SHLVL=2
+WINDOWID=35651591
+GDMSESSION=lightdm-xsession
+LOGNAME=user
+DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/1001/bus
+XDG_RUNTIME_DIR=/run/user/1001
+XAUTHORITY=/home/user/.Xauthority
+XDG_SESSION_PATH=/org/freedesktop/DisplayManager/Session0
+PATH=/usr/local/bin:/usr/bin:/bin:/usr/local/games:/usr/games:/usr/share/games:/usr/local/sbin:/usr/sbin:/sbin:/home/user/local/bin
+SESSION_MANAGER=local/parrot:@/tmp/.ICE-unix/1288,unix/parrot:/tmp/.ICE-unix/1288
+_=/usr/bin/env
+
+
+[00;31mInformación de la ruta:[00m
+/usr/local/bin:/usr/bin:/bin:/usr/local/games:/usr/games:/usr/share/games:/usr/local/sbin:/usr/sbin:/sbin:/home/user/local/bin
+
+
+[00;31mShells Disponibles:[00m
+# /etc/shells: valid login shells
+/bin/sh
+/bin/dash
+/bin/bash
+/bin/rbash
+/usr/bin/screen
+/bin/zsh
+/usr/bin/zsh
+/usr/bin/tmux
+
+
+[00;31mValor umask actual:[00m
+0022
+u=rwx,g=rx,o=rx
+
+
+[00;31mValor umask como se especifica en /etc/login.defs:[00m
+UMASK		022
+
+
+[00;31mContraseñas e información de almacenamiento:[00m
+PASS_MAX_DAYS	99999
+PASS_MIN_DAYS	0
+PASS_WARN_AGE	7
+ENCRYPT_METHOD SHA512
+
+
+[00;33m### Trabajos/Tareas ##########################################[00m
+[00;31mTrabajos cron:[00m
+-rw-r--r-- 1 root root  722 may 14  2015 /etc/crontab
+
+/etc/cron.d:
+total 32
+drwxr-xr-x   2 root root  4096 jun  9 01:10 .
+drwxr-xr-x 213 root root 12288 jul  9 16:51 ..
+-rw-r--r--   1 root root   607 mar  9  2016 john
+-rw-r--r--   1 root root   712 ene  1  2017 php
+-rw-r--r--   1 root root   102 may 14  2015 .placeholder
+-rw-r--r--   1 root root   396 oct  9  2016 sysstat
+
+/etc/cron.daily:
+total 92
+drwxr-xr-x   2 root root  4096 jun 13 17:52 .
+drwxr-xr-x 213 root root 12288 jul  9 16:51 ..
+-rwxr-xr-x   1 root root   539 ene 25 21:16 apache2
+-rwxr-xr-x   1 root root  1474 feb 22 15:02 apt-compat
+-rwxr-xr-x   1 root root   314 abr 18 23:11 aptitude
+-rwxr-xr-x   1 root root   355 oct 25  2016 bsdmainutils
+-rwxr-xr-x   1 root root  2032 dic 27  2016 chkrootkit
+-rwxr-xr-x   1 root root   384 ago 25  2016 cracklib-runtime
+-rwxr-xr-x   1 root root  1597 feb 13 12:43 dpkg
+-rwxr-xr-x   1 root root  4125 mar  2  2016 exim4-base
+lrwxrwxrwx   1 root root    37 jun  3 03:32 google-chrome -> /opt/google/chrome/cron/google-chrome
+-rwxr-xr-x   1 root root   338 ene 14 21:07 lighttpd
+-rwxr-xr-x   1 root root  2211 abr 13  2014 locate
+-rwxr-xr-x   1 root root    89 may  5  2015 logrotate
+-rwxr-xr-x   1 root root  1065 dic 13  2016 man-db
+-rwxr-xr-x   1 root root  1386 nov 21  2016 ntp
+-rwxr-xr-x   1 root root   249 feb 24 00:33 passwd
+-rw-r--r--   1 root root   102 may 14  2015 .placeholder
+-rwxr-xr-x   1 root root   979 jul  4  2016 rkhunter
+-rwxr-xr-x   1 root root   383 ene 25 07:35 samba
+-rwxr-xr-x   1 root root   441 oct  9  2016 sysstat
+
+/etc/cron.hourly:
+total 20
+drwxr-xr-x   2 root root  4096 may 16 23:05 .
+drwxr-xr-x 213 root root 12288 jul  9 16:51 ..
+-rw-r--r--   1 root root   102 may 14  2015 .placeholder
+
+/etc/cron.monthly:
+total 24
+drwxr-xr-x   2 root root  4096 may 16 23:05 .
+drwxr-xr-x 213 root root 12288 jul  9 16:51 ..
+-rw-r--r--   1 root root   102 may 14  2015 .placeholder
+-rwxr-xr-x   1 root root   144 jun  5  2013 rwhod
+
+/etc/cron.weekly:
+total 32
+drwxr-xr-x   2 root root  4096 jun  9 01:11 .
+drwxr-xr-x 213 root root 12288 jul  9 16:51 ..
+-rwxr-xr-x   1 root root   723 dic 13  2016 man-db
+-rw-r--r--   1 root root   102 may 14  2015 .placeholder
+-rwxr-xr-x   1 root root  1724 jul  4  2016 rkhunter
+-rwxr-xr-x   1 root root   322 ene 23 15:44 tor
+
+
+[00;31mContenidos crontab:[00m
+# /etc/crontab: system-wide crontab
+# Unlike any other crontab you don't have to run the `crontab'
+# command to install the new version when you edit this file
+# and files in /etc/cron.d. These files also have username fields,
+# that none of the other crontabs do.
+
+SHELL=/bin/sh
+PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin
+
+# m h dom mon dow user	command
+17 *	* * *	root    cd / && run-parts --report /etc/cron.hourly
+25 6	* * *	root	test -x /usr/sbin/anacron || ( cd / && run-parts --report /etc/cron.daily )
+47 6	* * 7	root	test -x /usr/sbin/anacron || ( cd / && run-parts --report /etc/cron.weekly )
+52 6	1 * *	root	test -x /usr/sbin/anacron || ( cd / && run-parts --report /etc/cron.monthly )
+#
+
+
+[00;33m### Red  ##########################################
+[00m
+[00;31mRed e información IP:[00m
+eth0: flags=4099<UP,BROADCAST,MULTICAST>  mtu 1500
+        ether 40:b0:34:94:24:d9  txqueuelen 1000  (Ethernet)
+        RX packets 0  bytes 0 (0.0 B)
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 0  bytes 0 (0.0 B)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+        device interrupt 27  base 0x9000  
+
+lo: flags=73<UP,LOOPBACK,RUNNING>  mtu 65536
+        inet 127.0.0.1  netmask 255.0.0.0
+        inet6 ::1  prefixlen 128  scopeid 0x10<host>
+        loop  txqueuelen 1  (Local Loopback)
+        RX packets 23083  bytes 18698960 (17.8 MiB)
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 23083  bytes 18698960 (17.8 MiB)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+
+wlan0: flags=4099<UP,BROADCAST,MULTICAST>  mtu 1500
+        ether 7a:88:2f:41:46:4f  txqueuelen 1000  (Ethernet)
+        RX packets 0  bytes 0 (0.0 B)
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 0  bytes 0 (0.0 B)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+
+wlan1: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
+        inet 192.168.1.42  netmask 255.255.255.0  broadcast 192.168.1.255
+        inet6 fe80::71e7:fc8:b240:b29f  prefixlen 64  scopeid 0x20<link>
+        inet6 fe80::6c02:f69e:3e6c:13fc  prefixlen 64  scopeid 0x20<link>
+        inet6 fe80::9998:5cc1:7890:2f4c  prefixlen 64  scopeid 0x20<link>
+        ether 00:c0:ca:75:d6:3e  txqueuelen 1000  (Ethernet)
+        RX packets 134890  bytes 134347235 (128.1 MiB)
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 98699  bytes 17308709 (16.5 MiB)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+
+
+[00;31mHistorial ARP:[00m
+? (192.168.1.1) at e0:41:36:29:74:a8 [ether] on wlan1
+
+
+[00;31mNombre de los servidores:[00m
+nameserver 80.58.61.250
+nameserver 80.58.61.254
+
+
+[00;31mRoute por defecto:[00m
+default         192.168.1.1     0.0.0.0         UG    600    0        0 wlan1
+
+
+[00;31mEscuchando TCP:[00m
+Active Internet connections (servers and established)
+Proto Recv-Q Send-Q Local Address           Foreign Address         State       PID/Program name    
+tcp        0      0 127.0.0.1:3306          0.0.0.0:*               LISTEN      -                   
+tcp        0      0 127.0.0.1:5939          0.0.0.0:*               LISTEN      -                   
+tcp        0      0 0.0.0.0:22              0.0.0.0:*               LISTEN      -                   
+tcp        0      0 127.0.0.1:3000          0.0.0.0:*               LISTEN      -                   
+tcp        0      0 192.168.1.42:44850      74.125.133.188:5228     ESTABLISHED 1904/chrome         
+tcp        0      0 192.168.1.42:44432      104.244.46.7:443        ESTABLISHED 1904/chrome         
+tcp        0      0 192.168.1.42:57278      104.244.42.1:443        ESTABLISHED 1904/chrome         
+tcp6       0      0 :::22                   :::*                    LISTEN      -                   
+
+
+[00;31mEscuchando UDP:[00m
+Active Internet connections (servers and established)
+Proto Recv-Q Send-Q Local Address           Foreign Address         State       PID/Program name    
+udp        0      0 0.0.0.0:68              0.0.0.0:*                           -                   
+udp        0      0 0.0.0.0:5353            0.0.0.0:*                           1904/chrome         
+
+
+[00;33m### Servicios #############################################
+[00m
+[00;31mProcesos corriendo:[00m
+USER       PID %CPU %MEM    VSZ   RSS TTY      STAT START   TIME COMMAND
+root         1  0.0  0.1 205248  7660 ?        Ss   jul08   0:04 /sbin/init noautomount
+root         2  0.0  0.0      0     0 ?        S    jul08   0:00 [kthreadd]
+root         3  0.0  0.0      0     0 ?        S    jul08   0:07 [ksoftirqd/0]
+root         5  0.0  0.0      0     0 ?        S<   jul08   0:00 [kworker/0:0H]
+root         7  0.0  0.0      0     0 ?        S    jul08   1:41 [rcu_sched]
+root         8  0.0  0.0      0     0 ?        S    jul08   0:00 [rcu_bh]
+root         9  0.0  0.0      0     0 ?        S    jul08   0:01 [migration/0]
+root        10  0.0  0.0      0     0 ?        S<   jul08   0:00 [lru-add-drain]
+root        11  0.0  0.0      0     0 ?        S    jul08   0:00 [watchdog/0]
+root        12  0.0  0.0      0     0 ?        S    jul08   0:00 [cpuhp/0]
+root        13  0.0  0.0      0     0 ?        S    jul08   0:00 [cpuhp/1]
+root        14  0.0  0.0      0     0 ?        S    jul08   0:00 [watchdog/1]
+root        15  0.0  0.0      0     0 ?        S    jul08   0:01 [migration/1]
+root        16  0.0  0.0      0     0 ?        S    jul08   0:01 [ksoftirqd/1]
+root        18  0.0  0.0      0     0 ?        S<   jul08   0:00 [kworker/1:0H]
+root        19  0.0  0.0      0     0 ?        S    jul08   0:00 [cpuhp/2]
+root        20  0.0  0.0      0     0 ?        S    jul08   0:00 [watchdog/2]
+root        21  0.0  0.0      0     0 ?        S    jul08   0:01 [migration/2]
+root        22  0.0  0.0      0     0 ?        S    jul08   0:01 [ksoftirqd/2]
+root        24  0.0  0.0      0     0 ?        S<   jul08   0:00 [kworker/2:0H]
+root        25  0.0  0.0      0     0 ?        S    jul08   0:00 [cpuhp/3]
+root        26  0.0  0.0      0     0 ?        S    jul08   0:00 [watchdog/3]
+root        27  0.0  0.0      0     0 ?        S    jul08   0:01 [migration/3]
+root        28  0.0  0.0      0     0 ?        S    jul08   0:01 [ksoftirqd/3]
+root        30  0.0  0.0      0     0 ?        S<   jul08   0:00 [kworker/3:0H]
+root        31  0.0  0.0      0     0 ?        S    jul08   0:00 [kdevtmpfs]
+root        32  0.0  0.0      0     0 ?        S<   jul08   0:00 [netns]
+root        33  0.0  0.0      0     0 ?        S    jul08   0:00 [khungtaskd]
+root        34  0.0  0.0      0     0 ?        S    jul08   0:00 [oom_reaper]
+root        35  0.0  0.0      0     0 ?        S<   jul08   0:00 [writeback]
+root        36  0.0  0.0      0     0 ?        S    jul08   0:00 [kcompactd0]
+root        38  0.0  0.0      0     0 ?        SN   jul08   0:00 [ksmd]
+root        39  0.0  0.0      0     0 ?        SN   jul08   0:00 [khugepaged]
+root        40  0.0  0.0      0     0 ?        S<   jul08   0:00 [crypto]
+root        41  0.0  0.0      0     0 ?        S<   jul08   0:00 [kintegrityd]
+root        42  0.0  0.0      0     0 ?        S<   jul08   0:00 [bioset]
+root        43  0.0  0.0      0     0 ?        S<   jul08   0:00 [kblockd]
+root        47  0.0  0.0      0     0 ?        S<   jul08   0:00 [devfreq_wq]
+root        48  0.0  0.0      0     0 ?        S<   jul08   0:00 [watchdogd]
+root        49  0.0  0.0      0     0 ?        S    jul08   0:00 [kswapd0]
+root        50  0.0  0.0      0     0 ?        S<   jul08   0:00 [vmstat]
+root        60  0.0  0.0      0     0 ?        S<   jul08   0:00 [kthrotld]
+root        61  0.0  0.0      0     0 ?        S<   jul08   0:00 [ipv6_addrconf]
+root        95  0.0  0.0      0     0 ?        S<   jul08   0:00 [acpi_thermal_pm]
+root       104  0.0  0.0      0     0 ?        S<   jul08   0:00 [ata_sff]
+root       111  0.0  0.0      0     0 ?        S    jul08   0:00 [scsi_eh_0]
+root       112  0.0  0.0      0     0 ?        S<   jul08   0:00 [scsi_tmf_0]
+root       113  0.0  0.0      0     0 ?        S    jul08   0:00 [scsi_eh_1]
+root       114  0.0  0.0      0     0 ?        S<   jul08   0:00 [scsi_tmf_1]
+root       154  0.0  0.0      0     0 ?        S<   jul08   0:00 [bioset]
+root       156  0.0  0.0      0     0 ?        S<   jul08   0:00 [bioset]
+root       160  0.0  0.0      0     0 ?        S<   jul08   0:01 [kworker/3:1H]
+root       163  0.0  0.0      0     0 ?        S<   jul08   0:00 [kworker/1:1H]
+root       164  0.0  0.0      0     0 ?        S<   jul08   0:02 [kworker/2:1H]
+root       165  0.0  0.0      0     0 ?        S<   jul08   0:00 [kworker/0:1H]
+root       190  0.0  0.0      0     0 ?        S<   jul08   0:00 [bioset]
+root       223  0.0  0.0      0     0 ?        S    jul08   0:06 [jbd2/sda6-8]
+root       224  0.0  0.0      0     0 ?        S<   jul08   0:00 [ext4-rsv-conver]
+root       262  0.0  0.1  62588 11964 ?        Ss   jul08   0:04 /lib/systemd/systemd-journald
+root       274  0.0  0.0      0     0 ?        S    jul08   0:00 [kauditd]
+root       294  0.0  0.0  99008  1720 ?        Ss   jul08   0:00 /sbin/lvmetad -f
+root       305  0.0  0.0  47604  5160 ?        Ss   jul08   0:02 /lib/systemd/systemd-udevd
+root       331  0.0  0.0      0     0 ?        S    jul08   0:00 [ccp-1-q1]
+root       332  0.0  0.0      0     0 ?        S    jul08   0:00 [ccp-1-q2]
+root       333  0.0  0.0      0     0 ?        S    jul08   0:00 [ccp-1-q3]
+root       334  0.0  0.0      0     0 ?        S    jul08   0:00 [ccp-1-q4]
+root       350  0.0  0.0      0     0 ?        S<   jul08   0:00 [cfg80211]
+root       374  0.0  0.0      0     0 ?        S<   jul08   0:00 [ttm_swap]
+root       393  0.0  0.0      0     0 ?        S<   jul08   0:00 [edac-poller]
+user       589  0.0  0.0  11236  2024 pts/0    S+   21:10   0:00 /bin/bash ./localEnumerator.sh -r miInforme -e /home/user/Desktop
+user       590  0.0  0.0  38240  3260 pts/0    R+   21:10   0:00 ps aux
+root       596  0.0  0.0  25108  4056 ?        Ss   jul08   0:00 /usr/sbin/smartd -n
+message+   598  0.0  0.0  45936  4628 ?        Ss   jul08   0:21 /usr/bin/dbus-daemon --system --address=systemd: --nofork --nopidfile --systemd-activation
+root       605  0.0  0.0  46500  4860 ?        Ss   jul08   0:00 /lib/systemd/systemd-logind
+rtkit      616  0.0  0.0 185748  3080 ?        SNsl jul08   0:00 /usr/lib/rtkit/rtkit-daemon
+root       617  0.0  0.1 422576  8924 ?        Ssl  jul08   0:00 /usr/sbin/ModemManager
+root       618  0.0  0.0 283972  7028 ?        Ssl  jul08   0:02 /usr/lib/accountsservice/accounts-daemon
+root       619  0.0  0.0  36304  4300 ?        Ss   jul08   0:00 /usr/lib/bluetooth/bluetoothd
+root       621  0.0  0.0  35916  3360 ?        Ss   jul08   0:09 /usr/sbin/irqbalance --foreground
+root       634  0.0  0.0  29604  2780 ?        Ss   jul08   0:00 /usr/sbin/cron -f
+root       636  0.0  0.0 250120  3248 ?        Ssl  jul08   0:01 /usr/sbin/rsyslogd -n
+clamav     641  0.0  0.3 154516 26232 ?        Ss   jul08   0:19 /usr/bin/freshclam -d --foreground=true
+dradis     644  0.0  1.7 593152 125324 ?       Ssl  jul08   0:26 /usr/bin/ruby2.3 bin/rails server
+root       673  0.0  0.1 288244  8472 ?        Ssl  jul08   0:01 /usr/lib/policykit-1/polkitd --no-debug
+root       815  0.0  0.0      0     0 ?        S<   jul08   0:00 [iprt-VBoxWQueue]
+root       818  0.0  0.0      0     0 ?        S    jul08   0:00 [iprt-VBoxTscThr]
+root       900  0.0  0.4 826516 32368 ?        Ssl  jul08   0:00 /usr/sbin/libvirtd
+root       906  0.0  0.0  12896  1792 tty1     Ss+  jul08   0:00 /sbin/agetty --noclear tty1 linux
+root       915  0.0  0.0 363704  6516 ?        SLsl jul08   0:00 /usr/sbin/lightdm
+redis      941  0.1  0.0  40464  2248 ?        Ssl  jul08   1:52 /usr/bin/redis-server 127.0.0.1:0
+root       947  0.3  0.1  46388  7436 ?        Ss   jul08   6:24 /sbin/wpa_supplicant -u -s -O /run/wpa_supplicant
+mysql     1033  0.0  1.0 673940 74980 ?        Ssl  jul08   1:00 /usr/sbin/mysqld
+root      1074  3.9  1.2 619280 89816 tty7     Ssl+ jul08  72:03 /usr/lib/xorg/Xorg :0 -seat seat0 -auth /var/run/lightdm/root/:0 -nolisten tcp vt7 -novtswitch
+root      1164  0.0  0.1 167664  9840 ?        Sl   jul08   1:29 /opt/teamviewer/tv_bin/teamviewerd -d
+root      1258  0.0  0.0 243480  6732 ?        Sl   jul08   0:00 lightdm --session-child 12 19
+user      1270  0.0  0.0  65108  6844 ?        Ss   jul08   0:00 /lib/systemd/systemd --user
+user      1271  0.0  0.0 234924  2472 ?        S    jul08   0:00 (sd-pam)
+user      1286  0.0  0.1 287092  8028 ?        Sl   jul08   0:00 /usr/bin/gnome-keyring-daemon --daemonize --login
+user      1288  0.0  0.3 403424 21460 ?        Ssl  jul08   0:03 x-session-manager
+user      1310  0.0  0.0  45616  4436 ?        Ss   jul08   0:02 /usr/bin/dbus-daemon --session --address=systemd: --nofork --nopidfile --systemd-activation
+user      1447  0.0  0.0 187688  5264 ?        Sl   jul08   0:01 /usr/lib/dconf/dconf-service
+user      1470  0.0  0.0  11088   336 ?        Ss   jul08   0:00 /usr/bin/ssh-agent x-session-manager
+user      1471  0.0  0.0 348860  5936 ?        Ssl  jul08   0:00 /usr/lib/at-spi2-core/at-spi-bus-launcher
+user      1476  0.0  0.0  45252  3836 ?        S    jul08   0:05 /usr/bin/dbus-daemon --config-file=/usr/share/defaults/at-spi2/accessibility.conf --nofork --print-address 3
+user      1478  0.0  0.0 220228  6868 ?        Sl   jul08   0:17 /usr/lib/at-spi2-core/at-spi2-registryd --use-gnome-session
+user      1488  0.0  0.5 1353960 38416 ?       Sl   jul08   1:09 /usr/bin/mate-settings-daemon
+user      1492  0.6  0.8 834664 60108 ?        Sl   jul08  11:49 marco
+user      1496  0.0  0.8 670316 57792 ?        Sl   jul08   1:15 mate-panel
+user      1497  0.0  0.0 284620  6868 ?        Ssl  jul08   0:00 /usr/lib/gvfs/gvfsd
+user      1508  0.0  1.0 910068 74988 ?        Sl   jul08   0:55 caja
+user      1514  0.2  0.1 1084276 12312 ?       Sl   jul08   4:04 /usr/bin/pulseaudio --start --log-target=syslog
+user      1517  0.7  1.0 591216 76088 ?        Sl   jul08  12:56 /usr/lib/mate-panel/wnck-applet
+user      1519  0.0  0.5 501548 42404 ?        Sl   jul08   0:12 mate-screensaver
+user      1523  0.0  0.4 451740 30668 ?        Sl   jul08   0:02 /usr/lib/mate-power-manager/mate-inhibit-applet
+user      1536  0.0  0.4 248216 32664 ?        Sl   jul08   0:02 /usr/bin/python3 /usr/share/system-config-printer/applet.py
+user      1538  0.0  0.2 312560 15076 ?        Sl   jul08   0:01 /usr/lib/x86_64-linux-gnu/polkit-mate/polkit-mate-authentication-agent-1
+user      1542  0.0  0.4 663996 34984 ?        Sl   jul08   0:08 mate-power-manager
+user      1545  0.0  0.5 562788 37372 ?        Sl   jul08   0:21 nm-applet
+user      1549  0.0  0.4 858380 34332 ?        Sl   jul08   0:03 mate-volume-control-applet
+user      1550  0.0  0.8 605652 57744 ?        Sl   jul08   0:03 /usr/bin/python3 /usr/bin/blueman-applet
+root      1561  0.0  0.1 311048  9076 ?        Ssl  jul08   0:06 /usr/lib/upower/upowerd
+user      1562  0.0  0.1 355720 11260 ?        Ssl  jul08   0:01 /usr/lib/gvfs/gvfs-udisks2-volume-monitor
+root      1575  0.0  0.1 375676  8044 ?        Ssl  jul08   0:17 /usr/lib/udisks2/udisksd --no-debug
+user      1587  0.0  0.1 370836  9860 ?        Sl   jul08   0:03 /usr/lib/gvfs/gvfsd-trash --spawner :1.14 /org/gtk/gvfs/exec_spaw/0
+user      1605  0.0  0.0 269552  5156 ?        Ssl  jul08   0:00 /usr/lib/gvfs/gvfs-mtp-volume-monitor
+user      1636  0.0  0.0 269520  5428 ?        Ssl  jul08   0:00 /usr/lib/gvfs/gvfs-goa-volume-monitor
+user      1640  0.0  0.0 281740  5708 ?        Ssl  jul08   0:00 /usr/lib/gvfs/gvfs-gphoto2-volume-monitor
+user      1644  0.0  0.1 370316  7608 ?        Ssl  jul08   0:00 /usr/lib/gvfs/gvfs-afc-volume-monitor
+user      1652  0.0  0.3 398668 25508 ?        Sl   jul08   0:02 /usr/lib/mate-indicator-applet/mate-indicator-applet-complete
+user      1653  0.0  0.4 564420 34320 ?        Sl   jul08   0:09 /usr/lib/mate-panel/clock-applet
+user      1654  0.0  0.3 405988 23540 ?        Sl   jul08   0:02 /usr/lib/mate-panel/notification-area-applet
+user      1675  0.0  0.0  84616  6600 ?        Ss   jul08   0:00 /usr/lib/bluetooth/obexd
+root      1678  0.0  0.0      0     0 ?        S<   jul08   0:00 [krfcommd]
+user      1692  0.0  0.0 194872  6968 ?        Ssl  jul08   0:00 /usr/lib/gvfs/gvfsd-metadata
+user      1803  0.0  0.1 436668  7360 ?        Sl   jul08   0:00 /usr/lib/gvfs/gvfsd-network --spawner :1.14 /org/gtk/gvfs/exec_spaw/1
+user      1818  0.0  0.1 371728  7384 ?        Sl   jul08   0:00 /usr/lib/gvfs/gvfsd-dnssd --spawner :1.14 /org/gtk/gvfs/exec_spaw/3
+user      1904  3.0  4.0 1417072 286024 ?      Sl   jul08  56:49 /opt/google/chrome/chrome
+user      1911  0.0  0.0   5948   688 ?        S    jul08   0:00 cat
+user      1912  0.0  0.0   5948   664 ?        S    jul08   0:00 cat
+user      1914  0.0  0.0   6348   812 ?        S    jul08   0:00 /opt/google/chrome/chrome-sandbox /opt/google/chrome/chrome --type=zygote --enable-crash-reporter=28127685-eb3f-40e5-9b04-a2d6ce21309c,
+user      1915  0.0  0.6 408468 48104 ?        S    jul08   0:00 /opt/google/chrome/chrome --type=zygote --enable-crash-reporter=28127685-eb3f-40e5-9b04-a2d6ce21309c,
+user      1917  0.0  0.0   6348   788 ?        S    jul08   0:00 /opt/google/chrome/chrome-sandbox /opt/google/chrome/nacl_helper
+user      1918  0.0  0.1  81708 10648 ?        S    jul08   0:00 /opt/google/chrome/nacl_helper
+user      1924  0.0  0.1 408468 12612 ?        S    jul08   0:01 /opt/google/chrome/chrome --type=zygote --enable-crash-reporter=28127685-eb3f-40e5-9b04-a2d6ce21309c,
+user      2046  0.0  1.0 805716 77168 ?        Sl   jul08   0:01 /opt/google/chrome/chrome --type=renderer --field-trial-handle=1 --primordial-pipe-token=921E57CA7FC81BEED90EE34DE58A5DEF --lang=es --enable-crash-reporter=28127685-eb3f-40e5-9b04-a2d6ce21309c, --extension-process --enable-offline-auto-reload --enable-offline-auto-reload-visible-only --blink-settings=disallowFetchForDocWrittenScriptsInMainFrame=false,disallowFetchForDocWrittenScriptsInMainFrameOnSlowConnections=true --enable-pinch --num-raster-threads=2 --enable-main-frame-before-activation --content-image-texture-target=0,0,3553;0,1,3553;0,2,3553;0,3,3553;0,4,3553;0,5,3553;0,6,3553;0,7,3553;0,8,3553;0,9,3553;0,10,3553;0,11,3553;0,12,3553;0,13,3553;0,14,3553;0,15,3553;0,16,3553;1,0,3553;1,1,3553;1,2,3553;1,3,3553;1,4,3553;1,5,3553;1,6,3553;1,7,3553;1,8,3553;1,9,3553;1,10,3553;1,11,3553;1,12,3553;1,13,3553;1,14,3553;1,15,3553;1,16,3553;2,0,3553;2,1,3553;2,2,3553;2,3,3553;2,4,3553;2,5,3553;2,6,3553;2,7,3553;2,8,3553;2,9,3553;2,10,3553;2,11,3553;2,12,3553;2,13,3553;2,14,3553;2,15,3553;2,16,3553;3,0,3553;3,1,3553;3,2,3553;3,3,3553;3,4,3553;3,5,3553;3,6,3553;3,7,3553;3,8,3553;3,9,3553;3,10,3553;3,11,3553;3,12,3553;3,13,3553;3,14,3553;3,15,3553;3,16,3553;4,0,3553;4,1,3553;4,2,3553;4,3,3553;4,4,3553;4,5,3553;4,6,3553;4,7,3553;4,8,3553;4,9,3553;4,10,3553;4,11,3553;4,12,3553;4,13,3553;4,14,3553;4,15,3553;4,16,3553 --disable-accelerated-video-decode --disable-webrtc-hw-vp8-encoding --disa
+user      2052  0.2  4.2 1231180 304660 ?      Sl   jul08   4:53 /opt/google/chrome/chrome --type=renderer --field-trial-handle=1 --primordial-pipe-token=6CBA3808D3A62AD7403A5E201349DE3C --lang=es --enable-crash-reporter=28127685-eb3f-40e5-9b04-a2d6ce21309c, --extension-process --enable-offline-auto-reload --enable-offline-auto-reload-visible-only --blink-settings=disallowFetchForDocWrittenScriptsInMainFrame=false,disallowFetchForDocWrittenScriptsInMainFrameOnSlowConnections=true --enable-pinch --num-raster-threads=2 --enable-main-frame-before-activation --content-image-texture-target=0,0,3553;0,1,3553;0,2,3553;0,3,3553;0,4,3553;0,5,3553;0,6,3553;0,7,3553;0,8,3553;0,9,3553;0,10,3553;0,11,3553;0,12,3553;0,13,3553;0,14,3553;0,15,3553;0,16,3553;1,0,3553;1,1,3553;1,2,3553;1,3,3553;1,4,3553;1,5,3553;1,6,3553;1,7,3553;1,8,3553;1,9,3553;1,10,3553;1,11,3553;1,12,3553;1,13,3553;1,14,3553;1,15,3553;1,16,3553;2,0,3553;2,1,3553;2,2,3553;2,3,3553;2,4,3553;2,5,3553;2,6,3553;2,7,3553;2,8,3553;2,9,3553;2,10,3553;2,11,3553;2,12,3553;2,13,3553;2,14,3553;2,15,3553;2,16,3553;3,0,3553;3,1,3553;3,2,3553;3,3,3553;3,4,3553;3,5,3553;3,6,3553;3,7,3553;3,8,3553;3,9,3553;3,10,3553;3,11,3553;3,12,3553;3,13,3553;3,14,3553;3,15,3553;3,16,3553;4,0,3553;4,1,3553;4,2,3553;4,3,3553;4,4,3553;4,5,3553;4,6,3553;4,7,3553;4,8,3553;4,9,3553;4,10,3553;4,11,3553;4,12,3553;4,13,3553;4,14,3553;4,15,3553;4,16,3553 --disable-accelerated-video-decode --disable-webrtc-hw-vp8-encoding --disa
+user      2058  0.0  1.2 826484 88560 ?        Sl   jul08   0:22 /opt/google/chrome/chrome --type=renderer --field-trial-handle=1 --primordial-pipe-token=80F0307E8A27E2DA47D80487EC04C5B1 --lang=es --enable-crash-reporter=28127685-eb3f-40e5-9b04-a2d6ce21309c, --extension-process --enable-offline-auto-reload --enable-offline-auto-reload-visible-only --blink-settings=disallowFetchForDocWrittenScriptsInMainFrame=false,disallowFetchForDocWrittenScriptsInMainFrameOnSlowConnections=true --enable-pinch --num-raster-threads=2 --enable-main-frame-before-activation --content-image-texture-target=0,0,3553;0,1,3553;0,2,3553;0,3,3553;0,4,3553;0,5,3553;0,6,3553;0,7,3553;0,8,3553;0,9,3553;0,10,3553;0,11,3553;0,12,3553;0,13,3553;0,14,3553;0,15,3553;0,16,3553;1,0,3553;1,1,3553;1,2,3553;1,3,3553;1,4,3553;1,5,3553;1,6,3553;1,7,3553;1,8,3553;1,9,3553;1,10,3553;1,11,3553;1,12,3553;1,13,3553;1,14,3553;1,15,3553;1,16,3553;2,0,3553;2,1,3553;2,2,3553;2,3,3553;2,4,3553;2,5,3553;2,6,3553;2,7,3553;2,8,3553;2,9,3553;2,10,3553;2,11,3553;2,12,3553;2,13,3553;2,14,3553;2,15,3553;2,16,3553;3,0,3553;3,1,3553;3,2,3553;3,3,3553;3,4,3553;3,5,3553;3,6,3553;3,7,3553;3,8,3553;3,9,3553;3,10,3553;3,11,3553;3,12,3553;3,13,3553;3,14,3553;3,15,3553;3,16,3553;4,0,3553;4,1,3553;4,2,3553;4,3,3553;4,4,3553;4,5,3553;4,6,3553;4,7,3553;4,8,3553;4,9,3553;4,10,3553;4,11,3553;4,12,3553;4,13,3553;4,14,3553;4,15,3553;4,16,3553 --disable-accelerated-video-decode --disable-webrtc-hw-vp8-encoding --disa
+user      2064  0.0  1.3 854672 95032 ?        Sl   jul08   1:13 /opt/google/chrome/chrome --type=renderer --field-trial-handle=1 --primordial-pipe-token=604B4C043DE4AF96057424FA9DA0DE72 --lang=es --enable-crash-reporter=28127685-eb3f-40e5-9b04-a2d6ce21309c, --extension-process --enable-offline-auto-reload --enable-offline-auto-reload-visible-only --blink-settings=disallowFetchForDocWrittenScriptsInMainFrame=false,disallowFetchForDocWrittenScriptsInMainFrameOnSlowConnections=true --enable-pinch --num-raster-threads=2 --enable-main-frame-before-activation --content-image-texture-target=0,0,3553;0,1,3553;0,2,3553;0,3,3553;0,4,3553;0,5,3553;0,6,3553;0,7,3553;0,8,3553;0,9,3553;0,10,3553;0,11,3553;0,12,3553;0,13,3553;0,14,3553;0,15,3553;0,16,3553;1,0,3553;1,1,3553;1,2,3553;1,3,3553;1,4,3553;1,5,3553;1,6,3553;1,7,3553;1,8,3553;1,9,3553;1,10,3553;1,11,3553;1,12,3553;1,13,3553;1,14,3553;1,15,3553;1,16,3553;2,0,3553;2,1,3553;2,2,3553;2,3,3553;2,4,3553;2,5,3553;2,6,3553;2,7,3553;2,8,3553;2,9,3553;2,10,3553;2,11,3553;2,12,3553;2,13,3553;2,14,3553;2,15,3553;2,16,3553;3,0,3553;3,1,3553;3,2,3553;3,3,3553;3,4,3553;3,5,3553;3,6,3553;3,7,3553;3,8,3553;3,9,3553;3,10,3553;3,11,3553;3,12,3553;3,13,3553;3,14,3553;3,15,3553;3,16,3553;4,0,3553;4,1,3553;4,2,3553;4,3,3553;4,4,3553;4,5,3553;4,6,3553;4,7,3553;4,8,3553;4,9,3553;4,10,3553;4,11,3553;4,12,3553;4,13,3553;4,14,3553;4,15,3553;4,16,3553 --disable-accelerated-video-decode --disable-webrtc-hw-vp8-encoding --disa
+user      2070  0.0  2.3 911740 169772 ?       Sl   jul08   1:22 /opt/google/chrome/chrome --type=renderer --field-trial-handle=1 --primordial-pipe-token=F069213B3039D52306A2CFEF19BD73A2 --lang=es --enable-crash-reporter=28127685-eb3f-40e5-9b04-a2d6ce21309c, --extension-process --enable-offline-auto-reload --enable-offline-auto-reload-visible-only --blink-settings=disallowFetchForDocWrittenScriptsInMainFrame=false,disallowFetchForDocWrittenScriptsInMainFrameOnSlowConnections=true --enable-pinch --num-raster-threads=2 --enable-main-frame-before-activation --content-image-texture-target=0,0,3553;0,1,3553;0,2,3553;0,3,3553;0,4,3553;0,5,3553;0,6,3553;0,7,3553;0,8,3553;0,9,3553;0,10,3553;0,11,3553;0,12,3553;0,13,3553;0,14,3553;0,15,3553;0,16,3553;1,0,3553;1,1,3553;1,2,3553;1,3,3553;1,4,3553;1,5,3553;1,6,3553;1,7,3553;1,8,3553;1,9,3553;1,10,3553;1,11,3553;1,12,3553;1,13,3553;1,14,3553;1,15,3553;1,16,3553;2,0,3553;2,1,3553;2,2,3553;2,3,3553;2,4,3553;2,5,3553;2,6,3553;2,7,3553;2,8,3553;2,9,3553;2,10,3553;2,11,3553;2,12,3553;2,13,3553;2,14,3553;2,15,3553;2,16,3553;3,0,3553;3,1,3553;3,2,3553;3,3,3553;3,4,3553;3,5,3553;3,6,3553;3,7,3553;3,8,3553;3,9,3553;3,10,3553;3,11,3553;3,12,3553;3,13,3553;3,14,3553;3,15,3553;3,16,3553;4,0,3553;4,1,3553;4,2,3553;4,3,3553;4,4,3553;4,5,3553;4,6,3553;4,7,3553;4,8,3553;4,9,3553;4,10,3553;4,11,3553;4,12,3553;4,13,3553;4,14,3553;4,15,3553;4,16,3553 --disable-accelerated-video-decode --disable-webrtc-hw-vp8-encoding --disa
+user      2136  0.0  0.9 605916 68860 ?        Sl   jul08   0:20 /opt/google/chrome/chrome --type=gpu-process --field-trial-handle=1 --enable-crash-reporter=28127685-eb3f-40e5-9b04-a2d6ce21309c, --use-gl=swiftshader-webgl --supports-dual-gpus=false --gpu-driver-bug-workarounds=1,7,10,24,39,45,54,67,68,76,100 --disable-gl-extensions=GL_KHR_blend_equation_advanced GL_KHR_blend_equation_advanced_coherent --disable-webrtc-hw-encoding --gpu-vendor-id=0x1002 --gpu-device-id=0x9851 --gpu-driver-vendor=Google Inc. --gpu-driver-version=3.3.0.2 --gpu-driver-date=2017/04/07 --enable-crash-reporter=28127685-eb3f-40e5-9b04-a2d6ce21309c, --service-request-channel-token=716027B44355E3D868A838463BAB6B0F
+user      2139  0.0  0.1 375756 13024 ?        S    jul08   0:00 /opt/google/chrome/chrome --type=gpu-broker
+root      3423  0.0  0.0  69944  5736 ?        Ss   jul08   0:00 /usr/sbin/sshd -D
+root     14854  0.0  0.0  37804  2096 ?        Ss   jul08   0:00 /bin/systemd-tty-ask-password-agent --wall
+root     18561  0.1  0.2 695828 19232 ?        Ssl  jul08   2:32 /usr/sbin/NetworkManager --no-daemon
+root     25375  0.1  0.0      0     0 ?        S    19:14   0:07 [kworker/3:1]
+root     25584  0.1  0.0      0     0 ?        S    19:46   0:06 [kworker/2:1]
+root     30493  0.1  0.0      0     0 ?        S    20:40   0:03 [kworker/0:0]
+root     30499  0.0  0.0      0     0 ?        S    20:40   0:00 [kworker/3:2]
+root     30500  0.0  0.0      0     0 ?        S    20:40   0:01 [kworker/1:1]
+root     31294  0.2  0.0      0     0 ?        S    20:46   0:03 [kworker/u8:0]
+root     31605  0.0  0.0      0     0 ?        S    20:49   0:00 [kworker/1:2]
+root     31779  0.4  0.0      0     0 ?        S    20:58   0:03 [kworker/u8:2]
+root     31788  0.0  0.0      0     0 ?        S    20:58   0:00 [kworker/2:2]
+root     31836  0.0  0.0      0     0 ?        S    16:51   0:00 [irq/16-mmc0]
+root     31838  0.0  0.0      0     0 ?        S    21:04   0:00 [kworker/0:1]
+root     31847  0.0  0.0      0     0 ?        S<   16:51   0:00 [hci0]
+root     31848  0.0  0.0      0     0 ?        S<   16:51   0:00 [hci0]
+root     31849  0.0  0.0      0     0 ?        S<   16:51   0:00 [kworker/u9:1]
+root     31850  0.0  0.0      0     0 ?        S    21:05   0:00 [kworker/2:0]
+root     31851  0.0  0.0      0     0 ?        S    21:05   0:00 [kworker/u8:1]
+user     31870  2.5  0.5 643700 39728 ?        Sl   21:08   0:03 mate-terminal
+user     31876  0.0  0.0  21412  5460 pts/0    Ss   21:08   0:00 bash
+root     31941  0.0  0.0      0     0 ?        S<   16:51   0:00 [kworker/u9:2]
+root     31955  0.0  0.0  20476  4352 ?        S    16:51   0:00 /sbin/dhclient -d -q -sf /usr/lib/NetworkManager/nm-dhcp-helper -pf /var/run/dhclient-wlan1.pid -lf /var/lib/NetworkManager/dhclient-359166a7-9351-4c53-b0f5-6d6169c4705d-wlan1.lease -cf /var/lib/NetworkManager/dhclient-wlan1.conf wlan1
+root     32603  0.0  0.0      0     0 ?        S    21:08   0:00 [kworker/u8:3]
+root     32662  0.0  0.0      0     0 ?        S    21:09   0:00 [kworker/3:0]
+root     32666  0.0  0.0      0     0 ?        S    21:10   0:00 [kworker/0:2]
+user     32668  1.7  0.0  11292  3116 pts/0    S+   21:10   0:00 /bin/bash ./localEnumerator.sh -r miInforme -e /home/user/Desktop
+
+
+[00;31mProcesos binarios y permisos asociados (de la lista anterior):[00m
+-rwxr-xr-x 1 root root   1099016 may 15 20:45 /bin/bash
+-rwxr-xr-x 1 root root     26968 jun  4 21:58 /bin/systemd-tty-ask-password-agent
+-rwxr-xr-x 1 root root   1141448 jun  4 21:58 /lib/systemd/systemd
+-rwxr-xr-x 1 root root    117160 jun  4 21:58 /lib/systemd/systemd-journald
+-rwxr-xr-x 1 root root    207336 jun  4 21:58 /lib/systemd/systemd-logind
+-rwxr-xr-x 1 root root    465680 jun  4 21:58 /lib/systemd/systemd-udevd
+-rwxr-xr-x 1 root root 118165528 jun  3 03:31 /opt/google/chrome/chrome
+-rwsr-xr-x 1 root root     14520 jun  3 03:31 /opt/google/chrome/chrome-sandbox
+-rwxr-xr-x 1 root root  35249520 jun  3 03:32 /opt/google/chrome/nacl_helper
+-rwxr-xr-x 1 root root  11657896 mar 24 00:00 /opt/teamviewer/tv_bin/teamviewerd
+-rwxr-xr-x 1 root root     57680 mar 22 09:43 /sbin/agetty
+-rwxr-xr-x 1 root root    487728 ene  9 04:55 /sbin/dhclient
+lrwxrwxrwx 1 root root        20 jun  4 21:58 /sbin/init -> /lib/systemd/systemd
+-rwxr-xr-x 1 root root     67720 mar 17 16:29 /sbin/lvmetad
+-rwxr-xr-x 1 root root   2151984 feb 20 10:55 /sbin/wpa_supplicant
+-rwxr-xr-x 1 root root    224208 abr  5 20:07 /usr/bin/dbus-daemon
+-rwxr-xr-x 1 root root    198760 feb  4 20:54 /usr/bin/freshclam
+-rwxr-xr-x 1 root root   1082272 sep  7  2016 /usr/bin/gnome-keyring-daemon
+-rwxr-xr-x 1 root root     39240 may  8 22:49 /usr/bin/mate-settings-daemon
+-rwxr-xr-x 1 root root     88232 ene 19 23:49 /usr/bin/pulseaudio
+lrwxrwxrwx 1 root root         9 may 16 23:06 /usr/bin/python3 -> python3.5
+-rwxr-xr-x 1 root root    953168 dic  6  2016 /usr/bin/redis-server
+-rwxr-xr-x 1 root root      6136 nov 22  2016 /usr/bin/ruby2.3
+-rwxr-sr-x 1 root ssh     358624 jun 18 12:08 /usr/bin/ssh-agent
+-rwxr-xr-x 1 root root    156616 dic 29  2016 /usr/lib/accountsservice/accounts-daemon
+-rwxr-xr-x 1 root root     87696 may  9 20:44 /usr/lib/at-spi2-core/at-spi2-registryd
+-rwxr-xr-x 1 root root     22520 may  9 20:44 /usr/lib/at-spi2-core/at-spi-bus-launcher
+-rwxr-xr-x 1 root root   1084528 mar 17 15:25 /usr/lib/bluetooth/bluetoothd
+-rwxr-xr-x 1 root root    488296 mar 17 15:25 /usr/lib/bluetooth/obexd
+-rwxr-xr-x 1 root root     82064 sep 20  2016 /usr/lib/dconf/dconf-service
+-rwxr-xr-x 1 root root     96328 mar 29 00:32 /usr/lib/gvfs/gvfs-afc-volume-monitor
+-rwxr-xr-x 1 root root     30712 mar 29 00:32 /usr/lib/gvfs/gvfsd
+-rwxr-xr-x 1 root root     30864 mar 29 00:32 /usr/lib/gvfs/gvfsd-dnssd
+-rwxr-xr-x 1 root root     75856 mar 29 00:32 /usr/lib/gvfs/gvfsd-metadata
+-rwxr-xr-x 1 root root     30776 mar 29 00:32 /usr/lib/gvfs/gvfsd-network
+-rwxr-xr-x 1 root root     47096 mar 29 00:32 /usr/lib/gvfs/gvfsd-trash
+-rwxr-xr-x 1 root root    104520 mar 29 00:32 /usr/lib/gvfs/gvfs-goa-volume-monitor
+-rwxr-xr-x 1 root root    100424 mar 29 00:32 /usr/lib/gvfs/gvfs-gphoto2-volume-monitor
+-rwxr-xr-x 1 root root     96328 mar 29 00:32 /usr/lib/gvfs/gvfs-mtp-volume-monitor
+-rwxr-xr-x 1 root root    174760 mar 29 00:32 /usr/lib/gvfs/gvfs-udisks2-volume-monitor
+-rwxr-xr-x 1 root root     34936 oct  4  2016 /usr/lib/mate-indicator-applet/mate-indicator-applet-complete
+-rwxr-xr-x 1 root root    129216 abr 28 09:35 /usr/lib/mate-panel/clock-applet
+-rwxr-xr-x 1 root root     59624 abr 28 09:35 /usr/lib/mate-panel/notification-area-applet
+-rwxr-xr-x 1 root root     59744 abr 28 09:35 /usr/lib/mate-panel/wnck-applet
+-rwxr-xr-x 1 root root     26728 abr 26 20:37 /usr/lib/mate-power-manager/mate-inhibit-applet
+-rwxr-xr-x 1 root root     15048 may 24 11:21 /usr/lib/policykit-1/polkitd
+-rwxr-xr-x 1 root root     64920 oct 24  2015 /usr/lib/rtkit/rtkit-daemon
+-rwxr-xr-x 1 root root    360992 nov 25  2016 /usr/lib/udisks2/udisksd
+-rwxr-xr-x 1 root root    227400 sep 19  2016 /usr/lib/upower/upowerd
+-rwxr-xr-x 1 root root     47096 ene 10 17:37 /usr/lib/x86_64-linux-gnu/polkit-mate/polkit-mate-authentication-agent-1
+-rwxr-xr-x 1 root root   2431880 mar  3 14:41 /usr/lib/xorg/Xorg
+-rwxr-xr-x 1 root root     48616 may  3  2015 /usr/sbin/cron
+-rwxr-xr-x 1 root root     56712 mar 10 18:56 /usr/sbin/irqbalance
+-rwxr-xr-x 1 root root    577464 mar 17 10:20 /usr/sbin/libvirtd
+-rwxr-xr-x 1 root root    260176 dic 19  2016 /usr/sbin/lightdm
+-rwxr-xr-x 1 root root   1216112 nov 16  2016 /usr/sbin/ModemManager
+-rwxr-xr-x 1 root root  17504392 may 13 10:08 /usr/sbin/mysqld
+-rwxr-xr-x 1 root root   2380080 mar 18 11:59 /usr/sbin/NetworkManager
+-rwxr-xr-x 1 root root    651576 ene 18 22:14 /usr/sbin/rsyslogd
+-rwxr-xr-x 1 root root    605256 jul 30  2016 /usr/sbin/smartd
+-rwxr-xr-x 1 root root    791024 jun 18 12:08 /usr/sbin/sshd
+
+
+[00;31mContenido de /etc/inetd.conf:[00m
+# /etc/inetd.conf:  see inetd(8) for further informations.
+#
+# Internet superserver configuration database
+#
+#
+# Lines starting with "#:LABEL:" or "#<off>#" should not
+# be changed unless you know what you are doing!
+#
+# If you want to disable an entry so it isn't touched during
+# package updates just comment it out with a single '#' character.
+#
+# Packages should modify this file by using update-inetd(8)
+#
+# <service_name> <sock_type> <proto> <flags> <user> <server_path> <args>
+#
+#:INTERNAL: Internal services
+#discard		stream	tcp	nowait	root	internal
+#discard		dgram	udp	wait	root	internal
+#daytime		stream	tcp	nowait	root	internal
+#time		stream	tcp	nowait	root	internal
+
+#:STANDARD: These are standard services.
+
+#:BSD: Shell, login, exec and talk are BSD protocols.
+
+#:MAIL: Mail, news and uucp services.
+
+#:INFO: Info services
+
+#:BOOT: TFTP service is provided primarily for booting.  Most sites
+#       run this only on machines acting as "boot servers."
+
+#:RPC: RPC based services
+
+#:HAM-RADIO: amateur-radio services
+
+#:OTHER: Other services
+
+
+[00;31mPermisos binarios de /etc/init.d/:[00m
+total 472
+drwxr-xr-x   2 root root  4096 jul  8 02:45 .
+drwxr-xr-x 213 root root 12288 jul  9 16:51 ..
+-rwxr-xr-x   1 root root  5336 feb  1  2016 alsa-utils
+-rwxr-xr-x   1 root root  8181 ene 25 21:16 apache2
+-rwxr-xr-x   1 root root  2225 ene 25 21:16 apache-htcacheclean
+-rwxr-xr-x   1 root root  3797 jun 13  2015 arpwatch
+-rwxr-xr-x   1 root root  1614 sep  5  2016 atftpd
+-rwxr-xr-x   1 root root  2401 ene 23 08:41 avahi-daemon
+-rwxr-xr-x   1 root root  2417 dic 22  2016 beef-xss
+-rwxr-xr-x   1 root root  1322 feb 21  2016 binfmt-support
+-rwxr-xr-x   1 root root  2948 oct 24  2016 bluetooth
+-rwxr-xr-x   1 root root  7692 feb  4 20:54 clamav-freshclam
+-rwxr-xr-x   1 root root  4403 ene 11 08:23 collectd
+-rwxr-xr-x   1 root root  1232 feb  9 06:11 console-setup.sh
+-rwxr-xr-x   1 root root  4224 ago 18  2016 couchdb
+-rwxr-xr-x   1 root root  2489 may  6  2012 cpufrequtils
+-rwxr-xr-x   1 root root  3049 may 14  2015 cron
+-rwxr-xr-x   1 root root   937 ene 30 14:07 cryptdisks
+-rwxr-xr-x   1 root root   896 ene 30 14:07 cryptdisks-early
+-rwxr-xr-x   1 root root  2784 mar 23  2014 darkstat
+-rwxr-xr-x   1 root root  2813 feb 16 14:21 dbus
+-rwxr-xr-x   1 root root  1625 jun 18  2010 dns2tcp
+-rwxr-xr-x   1 root root  4352 mar 15  2013 ebtables
+-rwxr-xr-x   1 root root  6680 ene  4  2017 exim4
+-rwxr-xr-x   1 root root  2911 nov 17  2016 freeradius
+-rwxr-xr-x   1 root root  2775 dic 10  2016 gnunet
+-rwxr-xr-x   1 root root  3595 nov 22  2016 greenbone-security-assistant
+-rwxr-xr-x   1 root root  3060 jul  9  2012 hddtemp
+-rwxr-xr-x   1 root root  1517 jul 23  2016 hostapd
+-rwxr-xr-x   1 root root  3809 ene 20 16:33 hwclock.sh
+-rwxr-xr-x   1 root root  6220 feb 27 12:12 i2p
+-rwxr-xr-x   1 root root  4119 ene 15 13:51 iodined
+-rwxr-xr-x   1 root root  2448 dic 30  2016 irqbalance
+-rwxr-xr-x   1 root root  5149 ene  9 04:55 isc-dhcp-server
+-rwxr-xr-x   1 root root  1479 may 19  2016 keyboard-setup.sh
+-rwxr-xr-x   1 root root  2044 dic 26  2016 kmod
+-rwxr-xr-x   1 root root  1755 oct  8  2016 knockd
+-rwxr-xr-x   1 root root  5600 sep  9  2016 libvirtd
+-rwxr-xr-x   1 root root 16206 feb 27 19:07 libvirt-guests
+-rwxr-xr-x   1 root root  2610 jul 25  2011 lightdm
+-rwxr-xr-x   1 root root  2944 ene 14 21:07 lighttpd
+-rwxr-xr-x   1 root root   604 jun  9  2016 live-tools
+-rwxr-xr-x   1 root root  6912 may  6  2012 loadcpufreq
+-rwxr-xr-x   1 root root   695 dic 16  2016 lvm2
+-rwxr-xr-x   1 root root   571 dic 16  2016 lvm2-lvmetad
+-rwxr-xr-x   1 root root   586 dic 16  2016 lvm2-lvmpolld
+-rwxr-xr-x   1 root root  2865 dic 18  2016 miredo
+-rwxr-xr-x   1 root root  5930 may 13 10:08 mysql
+-rwxr-xr-x   1 root root  4597 sep 16  2016 networking
+-rwxr-xr-x   1 root root  1757 feb 16 22:24 network-manager
+-rwxr-xr-x   1 root root  2046 ene 25 07:35 nmbd
+-rwxr-xr-x   1 root root  1561 nov 21  2016 ntp
+-rwxr-xr-x   1 root root  2444 dic 26  2016 openbsd-inetd
+-rwxr-xr-x   1 root root  3348 feb  7 09:25 openvas-manager
+-rwxr-xr-x   1 root root  4013 dic 13  2016 openvas-scanner
+-rwxr-xr-x   1 root root  1846 ene  1  2017 open-vm-tools
+-rwxr-xr-x   1 root root  9138 ene 20  2016 openvpn
+-rwxr-xr-x   1 root root  3720 ene 16  2013 pcscd
+-rwxr-xr-x   1 root root  1490 ene  1  2017 postgresql
+-rwxr-xr-x   1 root root   612 dic  4  2015 pppd-dns
+-rwxr-xr-x   1 root root  2545 jul 18  2016 pptpd
+-rwxr-xr-x   1 root root  1191 nov 22  2016 procps
+-rwxr-xr-x   1 root root  1832 dic  6  2016 redis-server
+-rwxr-xr-x   1 root root  3836 ene  2  2017 redsocks
+-rwxr-xr-x   1 root root  4355 jul 10  2014 rsync
+-rwxr-xr-x   1 root root  2868 ene 18 22:14 rsyslog
+-rwxr-xr-x   1 root root  1661 jun  5  2013 rwhod
+-rwxr-xr-x   1 root root  1348 ene 25 07:35 samba
+-rwxr-xr-x   1 root root  2369 ene 25 07:35 samba-ad-dc
+-rwxr-xr-x   1 root root  1222 abr  3 00:11 screen-cleanup
+-rwxr-xr-x   1 root root  2839 ene  9 23:56 selinux-autorelabel
+-rwxr-xr-x   1 root root  4769 jul 24  2015 shellinabox
+-rwxr-xr-x   1 root root  3505 jul 30  2016 smartmontools
+-rwxr-xr-x   1 root root  1986 ene 25 07:35 smbd
+-rwxr-xr-x   1 root root  2578 jun 20  2016 snmpd
+-rwxr-xr-x   1 root root  4033 mar 30 11:18 ssh
+-rwxr-xr-x   1 root root  4391 abr  2  2016 sslh
+-rwxr-xr-x   1 root root  4744 ene  8 15:30 stunnel4
+-rwxr-xr-x   1 root root   731 ene 13 18:12 sudo
+-rwxr-xr-x   1 root root  1597 oct  9  2016 sysstat
+-rwxr-xr-x   1 root root   796 mar 22  2016 thin
+-rwxr-xr-x   1 root root  6035 ene 23 15:44 tor
+-rwxr-xr-x   1 root root  6087 feb 13 16:36 udev
+-rwxr-xr-x   1 root root  4179 ene 23 22:24 udftools
+-rwxr-xr-x   1 root root  1391 may  6 11:57 unattended-upgrades
+-rwxr-xr-x   1 root root  1306 ene 20 16:33 uuidd
+-rwxr-xr-x   1 root root  4020 sep  9  2016 virtlogd
+-rwxr-xr-x   1 root root  2146 nov 29  2016 virtualbox-guest-utils
+-rwxr-xr-x   1 root root  1985 dic 30  2011 wmaloader
+-rwxr-xr-x   1 root root  2757 nov 23  2016 x11-common
+
+
+[00;33m### Software #############################################[00m
+
+[00;31mMYSQL version:[00m
+mysql  Ver 15.1 Distrib 10.1.23-MariaDB, for debian-linux-gnu (x86_64) using readline 5.2
+
+
+[00;31mVersión Postgres:[00m
+psql (PostgreSQL) 9.6.3
+
+
+[00;31mVersión de Apache:[00m
+Server version: Apache/2.4.25 (Debian)
+Server built:   2017-01-25T22:59:26
+
+
+[00;31mConfiguración de usuario de apache:[00m
+APACHE_RUN_USER=www-data
+APACHE_RUN_GROUP=www-data
+
+
+[00;33m### Archivos interesantes ####################################[00m
+
+[00;31mLocalización de archivos de utilidad:[00m
+/bin/nc
+/bin/netcat
+/usr/bin/wget
+/usr/bin/nmap
+/usr/bin/gcc
+
+
+[00;31mCompiladores instalados:[00m
+ii  checkpolicy                                                      2.6-2                                amd64        SELinux policy compiler
+ii  clang                                                            1:3.8-36                             amd64        C, C++ and Objective-C compiler (LLVM based)
+ii  clang-3.8                                                        1:3.8.1-24                           amd64        C, C++ and Objective-C compiler (LLVM based)
+ii  g++                                                              4:6.3.0-4                            amd64        GNU C++ compiler
+ii  g++-6                                                            6.3.0-18                             amd64        GNU C++ compiler
+ii  g++-mingw-w64                                                    6.3.0-14+19.3                        all          GNU C++ compiler for MinGW-w64
+ii  g++-mingw-w64-i686                                               6.3.0-18+19.3+b3                     amd64        GNU C++ compiler for MinGW-w64 targeting Win32
+ii  g++-mingw-w64-x86-64                                             6.3.0-18+19.3+b3                     amd64        GNU C++ compiler for MinGW-w64 targeting Win64
+ii  gcc                                                              4:6.3.0-4                            amd64        GNU C compiler
+ii  gcc-6                                                            6.3.0-18                             amd64        GNU C compiler
+ii  gcc-6-multilib                                                   6.3.0-18                             amd64        GNU C compiler (multilib support)
+ii  gcc-avr                                                          1:4.9.2+Atmel3.5.3-1                 amd64        GNU C compiler (cross compiler for avr)
+ii  gcc-mingw-w64                                                    6.3.0-14+19.3                        all          GNU C compiler for MinGW-w64
+ii  gcc-mingw-w64-i686                                               6.3.0-18+19.3+b3                     amd64        GNU C compiler for MinGW-w64 targeting Win32
+ii  gcc-mingw-w64-x86-64                                             6.3.0-18+19.3+b3                     amd64        GNU C compiler for MinGW-w64 targeting Win64
+ii  gcc-multilib                                                     4:6.3.0-4                            amd64        GNU C compiler (multilib files)
+ii  gfortran-mingw-w64                                               6.3.0-14+19.3                        all          GNU Fortran compiler for MinGW-w64
+ii  gfortran-mingw-w64-i686                                          6.3.0-18+19.3+b3                     amd64        GNU Fortran compiler for MinGW-w64 targeting Win32
+ii  gfortran-mingw-w64-x86-64                                        6.3.0-18+19.3+b3                     amd64        GNU Fortran compiler for MinGW-w64 targeting Win64
+ii  gnat-mingw-w64                                                   6.3.0-14+19.4                        all          GNU Ada compiler for MinGW-w64
+ii  gnat-mingw-w64-base                                              6.3.0-18+19.4+b3                     amd64        GNU Ada compiler for MinGW-w64 (base package)
+ii  gnat-mingw-w64-i686                                              6.3.0-18+19.4+b3                     amd64        GNU Ada compiler for MinGW-w64 targeting Win32
+ii  gnat-mingw-w64-x86-64                                            6.3.0-18+19.4+b3                     amd64        GNU Ada compiler for MinGW-w64 targeting Win64
+ii  golang                                                           2:1.8~3                              amd64        Go programming language compiler - metapackage
+ii  golang-1.8                                                       1.8.3-1                              all          Go programming language compiler - metapackage
+ii  golang-1.8-go                                                    1.8.3-1                              amd64        Go programming language compiler, linker, compiled stdlib
+ii  golang-go                                                        2:1.8~3                              amd64        Go programming language compiler, linker, compiled stdlib
+ii  libecj-java                                                      3.11.1-1                             all          Eclipse Java compiler (library)
+ii  libllvm3.8:amd64                                                 1:3.8.1-24                           amd64        Modular compiler and toolchain technologies, runtime library
+ii  libllvm3.9:amd64                                                 1:3.9.1-9                            amd64        Modular compiler and toolchain technologies, runtime library
+ii  libllvm3.9:i386                                                  1:3.9.1-9                            i386         Modular compiler and toolchain technologies, runtime library
+ii  libluajit-5.1-2:amd64                                            2.0.4+dfsg-1+b1                      amd64        Just in time compiler for Lua - library version
+ii  libluajit-5.1-common                                             2.0.4+dfsg-1                         all          Just in time compiler for Lua - common files
+ii  libmono-compilerservices-symbolwriter4.0-cil                     4.6.2.7+dfsg-1                       all          Mono.CompilerServices.SymbolWriter library (for CLI 4.0)
+ii  libparams-validationcompiler-perl                                0.23-1                               all          module to build an optimized subroutine parameter validator
+ii  libxkbcommon0:amd64                                              0.7.1-1                              amd64        library interface to the XKB compiler - shared library
+ii  linux-compiler-gcc-6-x86                                         4.9.25-1parrot25                     amd64        Compiler for Linux on x86 (meta-package)
+ii  llvm-3.8                                                         1:3.8.1-24                           amd64        Modular compiler and toolchain technologies
+ii  llvm-3.8-dev                                                     1:3.8.1-24                           amd64        Modular compiler and toolchain technologies, libraries and headers
+ii  llvm-3.8-runtime                                                 1:3.8.1-24                           amd64        Modular compiler and toolchain technologies, IR interpreter
+ii  mono-mcs                                                         4.6.2.7+dfsg-1                       all          Mono C# 2.0 / 3.0 / 4.0 / 5.0  compiler for CLI 2.0 / 4.0 / 4.5
+
+
+[00;31mPodemos leer/escribir archivos sensibles:[00m
+-rw-r--r-- 1 root root 3281 jun  9 01:14 /etc/passwd
+-rw-r--r-- 1 root root 1428 jun  7 23:28 /etc/group
+-rw-r----- 1 root shadow 1950 jul  8 15:57 /etc/shadow
+
+
+Ningun archivo *.conf ha podido ser buscado dado que no ha sido introducida ninguna palabra clave
+
+Ningun archivo *.log ha podido ser buscado dado que no ha sido introducida ninguna palabra clave
+
+Ningun archivo *.ini ha podido ser buscado dado que no ha sido introducida ninguna palabra clave
+
+[00;31mTodos los archivos *.conf en /etc (recursivo de 1 nivel):[00m
+-rw-r--r-- 1 root root 2069 ene 28 11:58 /etc/ntp.conf
+-rw-r--r-- 1 root root 11680 ene  8  2017 /etc/irssi.conf
+-rw-r--r-- 1 root root 2431 ene  2  2017 /etc/redsocks.conf
+-rw-r--r-- 1 root root 2969 ene 20 12:58 /etc/debconf.conf
+-rw-r--r-- 1 root root 552 dic 30  2016 /etc/pam.conf
+-rw-r--r-- 1 root root 7702 jun  9 01:15 /etc/ca-certificates.conf
+-rw-r--r-- 1 root root 214 jun 18  2010 /etc/dns2tcpd.conf
+-rw-r--r-- 1 root root 10368 may 19  2016 /etc/sensors3.conf
+-rw-r--r-- 1 root root 1260 mar 16  2016 /etc/ucf.conf
+-rw-r--r-- 1 root root 191 sep 27  2016 /etc/libaudit.conf
+-rw-r--r-- 1 root root 624 ago  8  2007 /etc/mtools.conf
+-rw-r--r-- 1 root root 480906 dic  6  2016 /etc/avrdude.conf
+-rw-r--r-- 1 root root 2584 ago  2  2016 /etc/gai.conf
+-rw-r--r-- 1 root root 264 dic 18  2016 /etc/miredo.conf
+-rw-r--r-- 1 root root 142 dic 17  2016 /etc/uniconf.conf
+-rw-r--r-- 1 root root 9 mar  8  2016 /etc/host.conf
+-rw-r--r-- 1 root root 599 may  5  2015 /etc/logrotate.conf
+-rw-r--r-- 1 root root 4781 ene 24 11:20 /etc/hdparm.conf
+-rw-r--r-- 1 root root 529 mar  7 03:56 /etc/nsswitch.conf
+-rw-r--r-- 1 root root 491 jun 13  2015 /etc/arpwatch.conf
+-rw-r--r-- 1 root root 1650 feb 23  2016 /etc/proxychains.conf
+-rw-r--r-- 1 root root 9103 abr 13 02:55 /etc/ffserver.conf
+-rw-r--r-- 1 root root 157 dic 10  2016 /etc/gnunet.conf
+-rw-r--r-- 1 root root 216 ene  9 23:56 /etc/sestatus.conf
+-rw-r--r-- 1 root root 1963 ene 18 22:14 /etc/rsyslog.conf
+-rw-r--r-- 1 root root 56 jun  9 01:16 /etc/chkrootkit.conf
+-rw-r--r-- 1 root root 57 ene  8  2014 /etc/fragroute.conf
+-rwxr-xr-x 1 root root 4405 jun 13  2013 /etc/nipper.conf
+-rw-r--r-- 1 root root 2683 nov 22  2016 /etc/sysctl.conf
+-rw-r--r-- 1 root root 604 jun 26  2016 /etc/deluser.conf
+-rw-r--r-- 1 root root 2764 dic  1  2016 /etc/tcpxtract.conf
+-rw-r--r-- 1 root root 25031 feb 20 00:11 /etc/dnsmasq.conf
+-rw-r--r-- 1 root root 1018 ene 23 07:10 /etc/usb_modeswitch.conf
+-rw-r--r-- 1 root root 45369 jul  4  2016 /etc/rkhunter.conf
+-rw-r--r-- 1 root root 9141 feb 27  2015 /etc/foremost.conf
+-rw-r--r-- 1 root root 834 jun  8  2012 /etc/gssapi_mech.conf
+-rw-r--r-- 1 root root 2981 mar  6 09:55 /etc/adduser.conf
+-rw-r--r-- 1 root root 1201 nov 17  2016 /etc/smi.conf
+-rw-r--r-- 1 root root 3019 may 22 02:28 /etc/pptpd.conf
+-rw-r--r-- 1 root root 973 feb  1 00:54 /etc/mke2fs.conf
+-rw-r--r-- 1 root root 3013 jul 16  2015 /etc/nikto.conf
+-rw-r----- 1 root dialout 66 mar  7 03:52 /etc/wvdial.conf
+-rw-r--r-- 1 root root 1056 mar  7 03:21 /etc/inetd.conf
+-rw-r--r-- 1 root root 327 oct  8  2016 /etc/knockd.conf
+-rw-r--r-- 1 root root 280 jun 20  2014 /etc/fuse.conf
+-rw-r--r-- 1 root root 281 may 29 20:52 /etc/strongswan.conf
+-rw-r--r-- 1 root root 7056 jul 30  2016 /etc/smartd.conf
+-rw-r--r-- 1 root root 1103 ene  8 22:32 /etc/owfs.conf
+-rw-r--r-- 1 root root 34 ago 13  2016 /etc/ld.so.conf
+
+
+[00;31mHistorial de archivos de los usuarios actuales:[00m
+-rw------- 1 user user 33249 jul  9 21:00 /home/user/.bash_history
+
+
+[00;33m***El historial de archivos de root es accesible***[00m
+-rw------- 1 root root 32242 jul  9 15:20 /root/.bash_history
+
+
+[00;31mAlgún mail interesante en /var/mail:[00m
+total 12
+drwxrwsr-x  2 root mail 4096 may 24 23:16 .
+drwxr-xr-x 13 root root 4096 may 16 23:13 ..
+-rw-------  1 mail mail 2544 may 24 23:16 mail
+
+
+[00;31m¿Algo interesante en el Dockerfile?:[00m
+-rw-r--r-- 1 root root 445 ago  5  2016 /usr/share/king-phisher/data/server/docker/Dockerfile
+-rwxr-xr-x 1 root root 1332 feb 16 00:43 /usr/share/spiderfoot/Dockerfile
+
+
+[00;31m¿Algo interesante en el docker-compose.yml?:[00m
+-rw-r--r-- 1 root root 287 ago  5  2016 /usr/share/king-phisher/data/server/docker/docker-compose.yml
+
+
+[00;33m### Escaneo Completo ;) ####################################[00m
