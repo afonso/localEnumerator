@@ -1171,3 +1171,19 @@ if [ "$export" ] && [ "$allconf" ]; then
 else
   :
 fi
+
+#Extracción del historial de archivos de cualquier usuario que sea accesible
+usrhist=`ls -la ~/.*_history 2>/dev/null`
+if [ "$usrhist" ]; then
+  echo -e "\e[00;31mHistorial de archivos de los usuarios actuales:\e[00m\n$usrhist" |tee -a $report 2>/dev/null
+  echo -e "\n" |tee -a $report 2>/dev/null
+else
+  :
+fi
+
+if [ "$export" ] && [ "$usrhist" ]; then
+  mkdir $format/history_files/ 2>/dev/null
+  for i in $usrhist; do cp --parents $i $format/history_files/; done 2>/dev/null
+ else
+  :
+fi
