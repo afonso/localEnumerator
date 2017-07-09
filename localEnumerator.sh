@@ -415,3 +415,23 @@ if [ "$export" ] && [ "$logindefs" ]; then
 else
   :
 fi
+
+echo -e "\e[00;33m### Trabajos/Tareas ##########################################\e[00m" |tee -a $report 2>/dev/null
+
+#Comprobar si hay trabajos 'cron' configurados
+cronjobs=`ls -la /etc/cron* 2>/dev/null`
+if [ "$cronjobs" ]; then
+  echo -e "\e[00;31mTrabajos cron:\e[00m\n$cronjobs" |tee -a $report 2>/dev/null
+  echo -e "\n" |tee -a $report 2>/dev/null
+else
+  :
+fi
+
+#Comprobar si podemos manipular estos trabajos de alguna manera
+cronjobwwperms=`find /etc/cron* -perm -0002 -type f -exec ls -la {} \; -exec cat {} 2>/dev/null \;`
+if [ "$cronjobwwperms" ]; then
+  echo -e "\e[00;33m***Trabajos 'cron' con capacidad de escritura y contenido de archivos:\e[00m\n$cronjobwwperms" |tee -a $report 2>/dev/null
+  echo -e "\n" |tee -a $report 2>/dev/null
+else
+  :
+fi
