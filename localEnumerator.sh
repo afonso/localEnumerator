@@ -782,7 +782,7 @@ else
   :
 fi
 
-echo -e "\e[00;33m### Archivos interesantes ####################################\e[00m" |tee -a $report 2>/dev/null
+echo -e "\e[00;33m### Archivos interesantes ####################################\e[00m\n" |tee -a $report 2>/dev/null
 
 #Comprobar si varios archivos están instalados
 echo -e "\e[00;31mLocalización de archivos de utilidad:\e[00m" |tee -a $report 2>/dev/null; which nc 2>/dev/null |tee -a $report 2>/dev/null; which netcat 2>/dev/null |tee -a $report 2>/dev/null; which wget 2>/dev/null |tee -a $report 2>/dev/null; which nmap 2>/dev/null |tee -a $report 2>/dev/null; which gcc 2>/dev/null |tee -a $report 2>/dev/null
@@ -800,3 +800,27 @@ fi
 #Comprobación manual - Listado de archivos sensibles, que podamos leer/modificar, etc.
 echo -e "\e[00;31mPodemos leer/escribir archivos sensibles:\e[00m" |tee -a $report 2>/dev/null; ls -la /etc/passwd 2>/dev/null |tee -a $report 2>/dev/null; ls -la /etc/group 2>/dev/null |tee -a $report 2>/dev/null; ls -la /etc/profile 2>/dev/null; ls -la /etc/shadow 2>/dev/null |tee -a $report 2>/dev/null; ls -la /etc/master.passwd 2>/dev/null |tee -a $report 2>/dev/null
 echo -e "\n" |tee -a $report 2>/dev/null
+
+#Buscar archivos suid - Esto puede tomar un tiempo, por lo que sólo usando escaneo profundo podremos realizar la búsqueda
+if [ "$thorough" = "1" ]; then
+findsuid=`find / -perm -4000 -type f -exec ls -la {} 2>/dev/null \;`
+	if [ "$findsuid" ]; then
+		echo -e "\e[00;31mArchivos SUID:\e[00m\n$findsuid" |tee -a $report 2>/dev/null
+		echo -e "\n" |tee -a $report 2>/dev/null
+	else
+		:
+	fi
+  else
+	:
+fi
+
+if [ "$thorough" = "1" ]; then
+	if [ "$export" ] && [ "$findsuid" ]; then
+		mkdir $format/suid-files/ 2>/dev/null
+		for i in $findsuid; do cp $i $format/suid-files/; done 2>/dev/null
+	else
+		:
+	fi
+  else
+	:
+fi
