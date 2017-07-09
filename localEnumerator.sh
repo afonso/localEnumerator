@@ -756,3 +756,28 @@ if [ "$postcon22" ]; then
 else
   :
 fi
+
+#Detalles de apache - Si está instalado
+apachever=`apache2 -v 2>/dev/null; httpd -v 2>/dev/null`
+if [ "$apachever" ]; then
+  echo -e "\e[00;31mVersión de Apache:\e[00m\n$apachever" |tee -a $report 2>/dev/null
+  echo -e "\n" |tee -a $report 2>/dev/null
+else
+  :
+fi
+
+#what account is apache running under
+apacheusr=`cat /etc/apache2/envvars 2>/dev/null |grep -i 'user\|group' 2>/dev/null |awk '{sub(/.*\export /,"")}1' 2>/dev/null`
+if [ "$apacheusr" ]; then
+  echo -e "\e[00;31mConfiguración de usuario de apache:\e[00m\n$apacheusr" |tee -a $report 2>/dev/null
+  echo -e "\n" |tee -a $report 2>/dev/null
+else
+  :
+fi
+
+if [ "$export" ] && [ "$apacheusr" ]; then
+  mkdir --parents $format/etc-export/apache2/ 2>/dev/null
+  cp /etc/apache2/envvars $format/etc-export/apache2/envvars 2>/dev/null
+else
+  :
+fi
