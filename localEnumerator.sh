@@ -1187,3 +1187,44 @@ if [ "$export" ] && [ "$usrhist" ]; then
  else
   :
 fi
+
+#Comprobar si podemos leer el archivo *_history de root - Tal vez hayan contraseñas guardadas
+roothist=`ls -la /root/.*_history 2>/dev/null`
+if [ "$roothist" ]; then
+  echo -e "\e[00;33m***El historial de archivos de root es accesible***\e[00m\n$roothist" |tee -a $report 2>/dev/null
+  echo -e "\n" |tee -a $report 2>/dev/null
+else
+  :
+fi
+
+if [ "$export" ] && [ "$roothist" ]; then
+  mkdir $format/history_files/ 2>/dev/null
+  cp $roothist $format/history_files/ 2>/dev/null
+else
+  :
+fi
+
+#Comprobar si hay algún mail accesible
+readmail=`ls -la /var/mail 2>/dev/null`
+if [ "$readmail" ]; then
+  echo -e "\e[00;31mAlgún mail interesante en /var/mail:\e[00m\n$readmail" |tee -a $report 2>/dev/null
+  echo -e "\n" |tee -a $report 2>/dev/null
+else
+  :
+fi
+
+#Podemos leer el mail de root
+readmailroot=`head /var/mail/root 2>/dev/null`
+if [ "$readmailroot" ]; then
+  echo -e "\e[00;33m***Podemos leer /var/mail/root (Listado a continuación)***\e[00m\n$readmailroot" |tee -a $report 2>/dev/null
+  echo -e "\n" |tee -a $report 2>/dev/null
+else
+  :
+fi
+
+if [ "$export" ] && [ "$readmailroot" ]; then
+  mkdir $format/mail-from-root/ 2>/dev/null
+  cp $readmailroot $format/mail-from-root/ 2>/dev/null
+else
+  :
+fi
