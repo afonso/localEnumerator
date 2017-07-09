@@ -476,7 +476,7 @@ else
   :
 fi
 
-#Extraer nombres de cuentas de /etc/passwd y ver si algún usuario tiene algún trabajo corn asociado (priv command)
+#Extraer nombres de cuentas de /etc/passwd y ver si algún usuario tiene algún trabajo cron asociado (priv command)
 cronother=`cat /etc/passwd | cut -d ":" -f 1 | xargs -n1 crontab -l -u 2>/dev/null`
 if [ "$cronother" ]; then
   echo -e "\e[00;31mTrabajos realizados por todos los usuarios:\e[00m\n$cronother" |tee -a $report 2>/dev/null
@@ -485,4 +485,30 @@ else
   :
 fi
 
-echo -e "\e[00;33m### Red  ##########################################\e[00m" |tee -a $report 2>/dev/null
+echo -e "\e[00;33m### Red  ##########################################\n\e[00m" |tee -a $report 2>/dev/null
+
+#Información nic
+nicinfo=`/sbin/ifconfig -a 2>/dev/null`
+if [ "$nicinfo" ]; then
+  echo -e "\e[00;31mRed e información IP:\e[00m\n$nicinfo" |tee -a $report 2>/dev/null
+  echo -e "\n" |tee -a $report 2>/dev/null
+else
+  :
+fi
+
+arpinfo=`arp -a 2>/dev/null`
+if [ "$arpinfo" ]; then
+  echo -e "\e[00;31mHistorial ARP:\e[00m\n$arpinfo" |tee -a $report 2>/dev/null
+  echo -e "\n" |tee -a $report 2>/dev/null
+else
+  :
+fi
+
+#Opciones DNS
+nsinfo=`cat /etc/resolv.conf 2>/dev/null | grep "nameserver"`
+if [ "$nsinfo" ]; then
+  echo -e "\e[00;31mNombre de los servidores:\e[00m\n$nsinfo" |tee -a $report 2>/dev/null
+  echo -e "\n" |tee -a $report 2>/dev/null
+else
+  :
+fi
