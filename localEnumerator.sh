@@ -319,3 +319,38 @@ homedircontents=`ls -ahl ~ 2>/dev/null`
   else
 	:
 fi
+
+#Comprobar si algunos archivos ssh son accesibles - Esto puede tomar un tiempo, por lo que sólo se hará con escaneado exhaustivo
+if [ "$thorough" = "1" ]; then
+sshfiles=`find / \( -name "id_dsa*" -o -name "id_rsa*" -o -name "known_hosts" -o -name "authorized_hosts" -o -name "authorized_keys" \) -exec ls -la {} 2>/dev/null \;`
+	if [ "$sshfiles" ]; then
+		echo -e "\e[00;31mInformación de llaves/host SSH encontradas en las siguientes localizaciones:\e[00m\n$sshfiles" |tee -a $report 2>/dev/null
+		echo -e "\n" |tee -a $report 2>/dev/null
+	else
+		:
+	fi
+  else
+  :
+fi
+
+if [ "$thorough" = "1" ]; then
+	if [ "$export" ] && [ "$sshfiles" ]; then
+		mkdir $format/ssh-files/ 2>/dev/null
+		for i in $sshfiles; do cp --parents $i $format/ssh-files/; done 2>/dev/null
+	else
+		:
+	fi
+  else
+	:
+fi
+
+#Comprobar si el login de root vía ssh está permitido
+sshrootlogin=`grep "PermitRootLogin " /etc/ssh/sshd_config 2>/dev/null | grep -v "#" | awk '{print  $2}'`
+if [ "$sshrootlogin" = "yes" ]; then
+  echo -e "\e[00;31mSe le permite a Root conectarse vía SSH:\e[00m" |tee -a $report 2>/dev/null; grep "PermitRootLogin " /etc/ssh/sshd_config 2>/dev/null | grep -v "#" |tee -a $report 2>/dev/null
+  echo -e "\n" |tee -a $report 2>/dev/null
+else
+  :
+fi
+
+echo -e "\e[00;33m### AMBIENTAL #######################################\e[00m" |tee -a $report 2>/dev/null
