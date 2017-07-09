@@ -583,3 +583,35 @@ if [ "$export" ] && [ "$inetdread" ]; then
 else
   :
 fi
+
+#Comando áspero para extraer binarios asociados de inetd.conf y mostrar los permisos de cada una
+inetdbinperms=`cat /etc/inetd.conf 2>/dev/null | awk '{print $7}' |xargs -r ls -la 2>/dev/null`
+if [ "$inetdbinperms" ]; then
+  echo -e "\e[00;31mPermisos binarios inetd relacionados:\e[00m\n$inetdbinperms" |tee -a $report 2>/dev/null
+  echo -e "\n" |tee -a $report 2>/dev/null
+else
+  :
+fi
+
+xinetdread=`cat /etc/xinetd.conf 2>/dev/null`
+if [ "$xinetdread" ]; then
+  echo -e "\e[00;31mContenido de /etc/xinetd.conf:\e[00m\n$xinetdread" |tee -a $report 2>/dev/null
+  echo -e "\n" |tee -a $report 2>/dev/null
+else
+  :
+fi
+
+if [ "$export" ] && [ "$xinetdread" ]; then
+  mkdir $format/etc-export/ 2>/dev/null
+  cp /etc/xinetd.conf $format/etc-export/xinetd.conf 2>/dev/null
+else
+  :
+fi
+
+xinetdincd=`cat /etc/xinetd.conf 2>/dev/null |grep "/etc/xinetd.d" 2>/dev/null`
+if [ "$xinetdincd" ]; then
+  echo -e "\e[00;31m/etc/xinetd.d se incluye en /etc/xinetd.conf - permisos binarios asociados listados a continuación:\e[00m" ls -la /etc/xinetd.d 2>/dev/null |tee -a $report 2>/dev/null
+  echo -e "\n" |tee -a $report 2>/dev/null
+else
+  :
+fi
