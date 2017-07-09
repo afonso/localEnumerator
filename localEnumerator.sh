@@ -176,3 +176,10 @@ if [ "$readpasswd" ]; then
 else
   :
 fi
+
+if [ "$export" ] && [ "$readpasswd" ]; then
+  mkdir $format/etc-export/ 2>/dev/null
+  cp /etc/passwd $format/etc-export/passwd 2>/dev/null
+else
+  :
+fi
