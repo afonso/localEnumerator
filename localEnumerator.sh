@@ -850,3 +850,79 @@ wwsuid=`find / -perm -4007 -type f -exec ls -la {} 2>/dev/null \;`
   else
 	:
 fi
+
+#Listado de archivos suid con permisos de escritura pertenecientes a root
+if [ "$thorough" = "1" ]; then
+wwsuidrt=`find / -uid 0 -perm -4007 -type f -exec ls -la {} 2>/dev/null \;`
+	if [ "$wwsuidrt" ]; then
+		echo -e "\e[00;31mArchivos SUID con permisos de escritura pertenecientes a root:\e[00m\n$wwsuidrt" |tee -a $report 2>/dev/null
+		echo -e "\n" |tee -a $report 2>/dev/null
+	else
+		:
+	fi
+  else
+	:
+fi
+
+#Buscar por archivos guid - Esto puede llevar un tiempo por lo que sólo se realizará si el escaneo profundo está activados
+if [ "$thorough" = "1" ]; then
+findguid=`find / -perm -2000 -type f -exec ls -la {} 2>/dev/null \;`
+	if [ "$findguid" ]; then
+		echo -e "\e[00;31mArchivos GUID:\e[00m\n$findguid" |tee -a $report 2>/dev/null
+		echo -e "\n" |tee -a $report 2>/dev/null
+	else
+		:
+	fi
+  else
+	:
+fi
+
+if [ "$thorough" = "1" ]; then
+	if [ "$export" ] && [ "$findguid" ]; then
+		mkdir $format/guid-files/ 2>/dev/null
+		for i in $findguid; do cp $i $format/guid-files/; done 2>/dev/null
+	else
+		:
+	fi
+  else
+	:
+fi
+
+#Listado de archivos guid interesantes
+if [ "$thorough" = "1" ]; then
+intguid=`find / -perm -2000 -type f 2>/dev/null | grep -w 'nmap\|perl\|'awk'\|'find'\|'bash'\|'sh'\|'man'\|'more'\|'less'\|'vi'\|'emacs'\|'vim'\|'nc'\|'netcat'\|python\|ruby\|lua\|irb\|pl' | xargs -r ls -la 2>/dev/null`
+	if [ "$intguid" ]; then
+		echo -e "\e[00;33m***Posibles archivos GUID interesantes***:\e[00m\n$intguid" |tee -a $report 2>/dev/null
+		echo -e "\n" |tee -a $report 2>/dev/null
+	else
+		:
+	fi
+  else
+	:
+fi
+
+#Listado de archivos guid con permisos de escritura
+if [ "$thorough" = "1" ]; then
+wwguid=`find / -perm -2007 -type f -exec ls -la {} 2>/dev/null \;`
+	if [ "$wwguid" ]; then
+		echo -e "\e[00;31mArchivos GUID con permisos de escritura:\e[00m\n$wwguid" |tee -a $report 2>/dev/null
+		echo -e "\n" |tee -a $report 2>/dev/null
+	else
+		:
+	fi
+  else
+	:
+fi
+
+#Listao de archivos guid con permisos de escritura pertenecientes a root
+if [ "$thorough" = "1" ]; then
+wwguidrt=`find / -uid 0 -perm -2007 -type f -exec ls -la {} 2>/dev/null \;`
+	if [ "$wwguidrt" ]; then
+		echo -e "\e[00;31mArchivos GUID con permisos de escritura pertenecientes a root:\e[00m\n$wwguidrt" |tee -a $report 2>/dev/null
+		echo -e "\n" |tee -a $report 2>/dev/null
+	else
+		:
+	fi
+  else
+	:
+fi
