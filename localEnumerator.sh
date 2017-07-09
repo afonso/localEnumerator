@@ -183,3 +183,19 @@ if [ "$export" ] && [ "$readpasswd" ]; then
 else
   :
 fi
+
+#Comprobar si se puede leer el fichero shadow
+readshadow=`cat /etc/shadow 2>/dev/null`
+if [ "$readshadow" ]; then
+  echo -e "\e[00;33m***El fichero shadow puede leerse***\e[00m\n$readshadow" |tee -a $report 2>/dev/null
+  echo -e "\n" |tee -a $report 2>/dev/null
+else
+  :
+fi
+
+if [ "$export" ] && [ "$readshadow" ]; then
+  mkdir $format/etc-export/ 2>/dev/null
+  cp /etc/shadow $format/etc-export/shadow 2>/dev/null
+else
+  :
+fi
