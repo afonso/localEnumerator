@@ -512,3 +512,74 @@ if [ "$nsinfo" ]; then
 else
   :
 fi
+
+#Configuración route predeterminada
+defroute=`route 2>/dev/null | grep default`
+if [ "$defroute" ]; then
+  echo -e "\e[00;31mRoute por defecto:\e[00m\n$defroute" |tee -a $report 2>/dev/null
+  echo -e "\n" |tee -a $report 2>/dev/null
+else
+  :
+fi
+
+#Escuchando TCP
+tcpservs=`netstat -antp 2>/dev/null`
+if [ "$tcpservs" ]; then
+  echo -e "\e[00;31mEscuchando TCP:\e[00m\n$tcpservs" |tee -a $report 2>/dev/null
+  echo -e "\n" |tee -a $report 2>/dev/null
+else
+  :
+fi
+
+#Escuchando UDP
+udpservs=`netstat -anup 2>/dev/null`
+if [ "$udpservs" ]; then
+  echo -e "\e[00;31mEscuchando UDP:\e[00m\n$udpservs" |tee -a $report 2>/dev/null
+  echo -e "\n" |tee -a $report 2>/dev/null
+else
+  :
+fi
+
+echo -e "\e[00;33m### Servicios #############################################\e\n[00m" |tee -a $report 2>/dev/null
+
+#Procesos corriendo
+psaux=`ps aux 2>/dev/null`
+if [ "$psaux" ]; then
+  echo -e "\e[00;31mProcesos corriendo:\e[00m\n$psaux" |tee -a $report 2>/dev/null
+  echo -e "\n" |tee -a $report 2>/dev/null
+else
+  :
+fi
+
+#Proceso de búsqueda de ruta binaria y permisos
+procperm=`ps aux 2>/dev/null | awk '{print $11}'|xargs -r ls -la 2>/dev/null |awk '!x[$0]++' 2>/dev/null`
+if [ "$procperm" ]; then
+  echo -e "\e[00;31mProcesos binarios y permisos asociados (de la lista anterior):\e[00m\n$procperm" |tee -a $report 2>/dev/null
+  echo -e "\n" |tee -a $report 2>/dev/null
+else
+  :
+fi
+
+if [ "$export" ] && [ "$procperm" ]; then
+procpermbase=`ps aux 2>/dev/null | awk '{print $11}' | xargs -r ls 2>/dev/null | awk '!x[$0]++' 2>/dev/null`
+  mkdir $format/ps-export/ 2>/dev/null
+  for i in $procpermbase; do cp --parents $i $format/ps-export/; done 2>/dev/null
+else
+  :
+fi
+
+#Cosas interesantes de utilidad en inetd.conf
+inetdread=`cat /etc/inetd.conf 2>/dev/null`
+if [ "$inetdread" ]; then
+  echo -e "\e[00;31mContenido de /etc/inetd.conf:\e[00m\n$inetdread" |tee -a $report 2>/dev/null
+  echo -e "\n" |tee -a $report 2>/dev/null
+else
+  :
+fi
+
+if [ "$export" ] && [ "$inetdread" ]; then
+  mkdir $format/etc-export/ 2>/dev/null
+  cp /etc/inetd.conf $format/etc-export/inetd.conf 2>/dev/null
+else
+  :
+fi
