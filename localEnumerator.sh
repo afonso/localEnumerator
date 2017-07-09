@@ -155,3 +155,12 @@ if [ "$grpinfo" ]; then
 else
   :
 fi
+
+#Comprobación de hashes almacenados en /etc/passwd (método de almacenamiento depreciado *nix)
+hashesinpasswd=`grep -v '^[^:]*:[x]' /etc/passwd 2>/dev/null`
+if [ "$hashesinpasswd" ]; then
+  echo -e "\e[00;33mParece que tenemos hashes de contraseñas en /etc/passwd!\e[00m\n$hashesinpasswd" |tee -a $report 2>/dev/null
+  echo -e "\n" |tee -a $report 2>/dev/null
+else
+  :
+fi
