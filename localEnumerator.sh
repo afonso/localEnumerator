@@ -137,3 +137,12 @@ if [ "$lastlogedonusrs" ]; then
 else
   :
 fi
+
+#Usuarios logeados actualmente activos
+loggedonusrs=`w 2>/dev/null`
+if [ "$loggedonusrs" ]; then
+  echo -e "\e[00;31mUsuarios logeados actualmente activos:\e[00m\n$loggedonusrs" |tee -a $report 2>/dev/null
+  echo -e "\n" |tee -a $report 2>/dev/null
+else
+  :
+fi
