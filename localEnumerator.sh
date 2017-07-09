@@ -824,3 +824,29 @@ if [ "$thorough" = "1" ]; then
   else
 	:
 fi
+
+#Listado de archivos suid interesantes
+if [ "$thorough" = "1" ]; then
+intsuid=`find / -perm -4000 -type f 2>/dev/null | grep -w 'nmap\|perl\|'awk'\|'find'\|'bash'\|'sh'\|'man'\|'more'\|'less'\|'vi'\|'vim'\|'emacs'\|'nc'\|'netcat'\|python\|ruby\|lua\|irb\|pl' | xargs -r ls -la 2>/dev/null`
+	if [ "$intsuid" ]; then
+		echo -e "\e[00;33m***Posibles archivos SUID interesantes***:\e[00m\n$intsuid" |tee -a $report 2>/dev/null
+		echo -e "\n" |tee -a $report 2>/dev/null
+	else
+		:
+	fi
+  else
+	:
+fi
+
+#Listado de archivos suid con permisos de escritura
+if [ "$thorough" = "1" ]; then
+wwsuid=`find / -perm -4007 -type f -exec ls -la {} 2>/dev/null \;`
+	if [ "$wwsuid" ]; then
+		echo -e "\e[00;31mArchivos SUID con permisos de escritura:\e[00m\n$wwsuid" |tee -a $report 2>/dev/null
+		echo -e "\n" |tee -a $report 2>/dev/null
+	else
+		:
+	fi
+  else
+	:
+fi
