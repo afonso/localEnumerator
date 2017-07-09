@@ -1129,7 +1129,7 @@ if [ "$keyword" = "" ];then
   fi
 fi
 
-#use supplied keyword and cat *.ini files for potential matches - output will show line number within relevant file path where a match has been located
+#Utilizar la palabra clave suministrada y cat sobre archivos *.ini pra posibles coincidencias - La salida mostrará el número de linea donde dicha información relevante ha sido encontrada usando como filtro la palabra clave
 if [ "$keyword" = "" ];then
   echo -e "Ningun archivo *.ini ha podido ser buscado dado que no ha sido introducida ninguna palabra clave\n" |tee -a $report 2>/dev/null
   else
@@ -1154,4 +1154,20 @@ if [ "$keyword" = "" ];then
     else
       :
   fi
+fi
+
+#Rápida extracción de archivos .conf desde /etc - sólo 1 nivel
+allconf=`find /etc/ -maxdepth 1 -name *.conf -type f -exec ls -la {} \; 2>/dev/null`
+if [ "$allconf" ]; then
+  echo -e "\e[00;31mTodos los archivos *.conf en /etc (recursivo de 1 nivel):\e[00m\n$allconf" |tee -a $report 2>/dev/null
+  echo -e "\n" |tee -a $report 2>/dev/null
+else
+  :
+fi
+
+if [ "$export" ] && [ "$allconf" ]; then
+  mkdir $format/conf-files/ 2>/dev/null
+  for i in $allconf; do cp --parents $i $format/conf-files/; done 2>/dev/null
+else
+  :
 fi
