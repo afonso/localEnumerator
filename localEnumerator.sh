@@ -244,3 +244,21 @@ if [ "$sudoperms" ]; then
 else
   :
 fi
+
+#Conocidos buenos binarios de desglose
+sudopwnage=`echo '' | sudo -S -l 2>/dev/null | grep -w 'nmap\|perl\|'awk'\|'find'\|'bash'\|'sh'\|'man'\|'more'\|'less'\|'vi'\|'emacs'\|'vim'\|'nc'\|'netcat'\|python\|ruby\|lua\|irb' | xargs -r ls -la 2>/dev/null`
+if [ "$sudopwnage" ]; then
+  echo -e "\e[00;33m***Posible sudo [PWNAGE]***\e[00m\n$sudopwnage" |tee -a $report 2>/dev/null
+  echo -e "\n" |tee -a $report 2>/dev/null
+else
+  :
+fi
+
+#Comprobación del directorio home del root para ver si es accesible
+rthmdir=`ls -ahl /root/ 2>/dev/null`
+if [ "$rthmdir" ]; then
+  echo -e "\e[00;33m***Podemos leer el directorio home del root***\e[00m\n$rthmdir" |tee -a $report 2>/dev/null
+  echo -e "\n" |tee -a $report 2>/dev/null
+else
+  :
+fi
