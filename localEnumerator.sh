@@ -39,6 +39,7 @@ echo -e "\e[00;31m##############################################################
 echo -e "\e[00;33m# www.mundohackers.es\e[00m\n" |tee -a $report 2>/dev/null
 
 echo "Información de depuración" |tee -a $report 2>/dev/null
+echo -e "--------------------------\n" |tee -a $report 2>/dev/null
 
 if [ "$keyword" ]; then
 	echo "Palabra clave = $keyword" |tee -a $report 2>/dev/null
@@ -94,6 +95,15 @@ fi
 procver=`cat /proc/version 2>/dev/null`
 if [ "$procver" ]; then
   echo -e "\e[00;31mInformación del kernel (continuado):\e[00m\n$procver" |tee -a $report 2>/dev/null
+  echo -e "\n" |tee -a $report 2>/dev/null
+else
+  :
+fi
+
+#Buscar todos los archivos de liberación para la información de la versión
+release=`cat /etc/*-release 2>/dev/null`
+if [ "$release" ]; then
+  echo -e "\e[00;31mInformación de liberación específica:\e[00m\n$release" |tee -a $report 2>/dev/null
   echo -e "\n" |tee -a $report 2>/dev/null
 else
   :
