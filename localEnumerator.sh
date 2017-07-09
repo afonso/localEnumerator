@@ -215,3 +215,7 @@ if [ "$export" ] && [ "$readmasterpasswd" ]; then
 else
   :
 fi
+
+#Todas las cuentas root (uid 0)
+echo -e "\e[00;31mCuentas superusuario:\e[00m" | tee -a $report 2>/dev/null; grep -v -E "^#" /etc/passwd 2>/dev/null| awk -F: '$3 == 0 { print $1}' 2>/dev/null |tee -a $report 2>/dev/null
+echo -e "\n" |tee -a $report 2>/dev/null
