@@ -36,4 +36,30 @@ done
 echo -e "\n\e[00;31m#####################################################################\e[00m" |tee -a $report 2>/dev/null
 echo -e "\e[00;31m#\e[00m" "\e[00;33mEnumeración Local de Linux & Script para Elevación de Privilegios\e[00m" "\e[00;31m#\e[00m" |tee -a $report 2>/dev/null
 echo -e "\e[00;31m#####################################################################\e[00m" |tee -a $report 2>/dev/null
-echo -e "\e[00;33m# www.mundohackers.es\e[00m" |tee -a $report 2>/dev/null
+echo -e "\e[00;33m# www.mundohackers.es\e[00m\n" |tee -a $report 2>/dev/null
+
+echo "Información de depuración" |tee -a $report 2>/dev/null
+
+if [ "$keyword" ]; then
+	echo "Palabra clave = $keyword" |tee -a $report 2>/dev/null
+else
+	:
+fi
+
+if [ "$report" ]; then
+	echo "Nombre del informe = $report" |tee -a $report 2>/dev/null
+else
+	:
+fi
+
+if [ "$export" ]; then
+	echo "Localización de exportación = $export" |tee -a $report 2>/dev/null
+else
+	:
+fi
+
+if [ "$thorough" ]; then
+	echo "Prueba minuciosa = activada" |tee -a $report 2>/dev/null
+else
+	echo "Prueba minuciosa = desactivada" |tee -a $report 2>/dev/null
+fi
