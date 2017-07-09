@@ -381,3 +381,37 @@ if [ "$shellinfo" ]; then
 else
   :
 fi
+
+#Valor umask actual con salida octal y simbólica
+umask=`umask -S 2>/dev/null & umask 2>/dev/null`
+if [ "$umask" ]; then
+  echo -e "\e[00;31mValor umask actual:\e[00m\n$umask" |tee -a $report 2>/dev/null
+  echo -e "\n" |tee -a $report 2>/dev/null
+else
+  :
+fi
+
+#Valor como umask en /etc/login.defs
+umaskdef=`cat /etc/login.defs 2>/dev/null |grep -i UMASK 2>/dev/null |grep -v "#" 2>/dev/null`
+if [ "$umaskdef" ]; then
+  echo -e "\e[00;31mValor umask como se especifica en /etc/login.defs:\e[00m\n$umaskdef" |tee -a $report 2>/dev/null
+  echo -e "\n" |tee -a $report 2>/dev/null
+else
+  :
+fi
+
+#Información de la política de contraseñas tal y como viene almacenado en /etc/login.defs
+logindefs=`cat /etc/login.defs 2>/dev/null | grep "PASS_MAX_DAYS\|PASS_MIN_DAYS\|PASS_WARN_AGE\|ENCRYPT_METHOD" 2>/dev/null | grep -v "#" 2>/dev/null`
+if [ "$logindefs" ]; then
+  echo -e "\e[00;31mContraseñas e información de almacenamiento:\e[00m\n$logindefs" |tee -a $report 2>/dev/null
+  echo -e "\n" |tee -a $report 2>/dev/null
+else
+  :
+fi
+
+if [ "$export" ] && [ "$logindefs" ]; then
+  mkdir $format/etc-export/ 2>/dev/null
+  cp /etc/login.defs $format/etc-export/login.defs 2>/dev/null
+else
+  :
+fi
