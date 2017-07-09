@@ -1,4 +1,4 @@
-<b>localEnumeration</b>
+<b>localEnumerator</b>
 
 Programa hecho en bash para enumerar toda la información de un host Linux. Bastante adecuado para la búsqueda de elevación de privilegios en una máquina.
 
