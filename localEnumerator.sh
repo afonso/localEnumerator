@@ -73,3 +73,13 @@ if [ "$export" ]; then
 else
   :
 fi
+
+who=`whoami` 2>/dev/null |tee -a $report 2>/dev/null
+echo -e "\n" |tee -a $report 2>/dev/null
+
+echo -e "\e[00;33mEscaneo empezado a las:"; date |tee -a $report 2>/dev/null
+echo -e "\e[00m\n" |tee -a $report 2>/dev/null
+
+echo -e "\e[00;33m### SISTEMA ##############################################\e[00m" |tee -a $report 2>/dev/null
+
+#basic kernel info
