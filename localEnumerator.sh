@@ -649,3 +649,30 @@ if [ "$rcdread" ]; then
 else
   :
 fi
+
+#Archivos init.d NO pertenecientes a root (Notar que cambiamos de directorio)
+rcdperms=`find /etc/rc.d/init.d \! -uid 0 -type f 2>/dev/null |xargs -r ls -la 2>/dev/null`
+if [ "$rcdperms" ]; then
+  echo -e "\e[00;31mPermisos binarios en /etc/rc.d/init.d no pertenecientes a root (uid 0):\e[00m\n$rcdperms" |tee -a $report 2>/dev/null
+  echo -e "\n" |tee -a $report 2>/dev/null
+else
+  :
+fi
+
+usrrcdread=`ls -la /usr/local/etc/rc.d 2>/dev/null`
+if [ "$usrrcdread" ]; then
+  echo -e "\e[00;31mPermisos binarios en /usr/local/etc/rc.d:\e[00m\n$usrrcdread" |tee -a $report 2>/dev/null
+  echo -e "\n" |tee -a $report 2>/dev/null
+else
+  :
+fi
+
+
+#Archivos rc.d no pertenecientes a root
+usrrcdperms=`find /usr/local/etc/rc.d \! -uid 0 -type f 2>/dev/null |xargs -r ls -la 2>/dev/null`
+if [ "$usrrcdperms" ]; then
+  echo -e "\e[00;31mArchivos en /usr/local/etc/rc.d no pertenecientes a root (uid 0):\e[00m\n$usrrcdperms" |tee -a $report 2>/dev/null
+  echo -e "\n" |tee -a $report 2>/dev/null
+else
+  :
+fi
