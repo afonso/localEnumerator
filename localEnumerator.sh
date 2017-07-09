@@ -615,3 +615,37 @@ if [ "$xinetdincd" ]; then
 else
   :
 fi
+
+#Comando áspero para extraer binarios asociados de xinetd.conf y mostrar permisos de cada uno de ellos
+xinetdbinperms=`cat /etc/xinetd.conf 2>/dev/null | awk '{print $7}' |xargs -r ls -la 2>/dev/null`
+if [ "$xinetdbinperms" ]; then
+  echo -e "\e[00;31mPermisos binarios relacionados con xinetd:\e[00m\n$xinetdbinperms" |tee -a $report 2>/dev/null
+  echo -e "\n" |tee -a $report 2>/dev/null
+else
+  :
+fi
+
+initdread=`ls -la /etc/init.d 2>/dev/null`
+if [ "$initdread" ]; then
+  echo -e "\e[00;31mPermisos binarios de /etc/init.d/:\e[00m\n$initdread" |tee -a $report 2>/dev/null
+  echo -e "\n" |tee -a $report 2>/dev/null
+else
+  :
+fi
+
+#Archivos init.d NO pertenecientes a root
+initdperms=`find /etc/init.d/ \! -uid 0 -type f 2>/dev/null |xargs -r ls -la 2>/dev/null`
+if [ "$initdperms" ]; then
+  echo -e "\e[00;31mArchivos en /etc/init.d/ no pertenecintes a root (uid 0):\e[00m\n$initdperms" |tee -a $report 2>/dev/null
+  echo -e "\n" |tee -a $report 2>/dev/null
+else
+  :
+fi
+
+rcdread=`ls -la /etc/rc.d/init.d 2>/dev/null`
+if [ "$rcdread" ]; then
+  echo -e "\e[00;31mPermisos binarios en /etc/rc.d/init.d:\e[00m\n$rcdread" |tee -a $report 2>/dev/null
+  echo -e "\n" |tee -a $report 2>/dev/null
+else
+  :
+fi
