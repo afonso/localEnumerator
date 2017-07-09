@@ -82,4 +82,19 @@ echo -e "\e[00m\n" |tee -a $report 2>/dev/null
 
 echo -e "\e[00;33m### SISTEMA ##############################################\e[00m" |tee -a $report 2>/dev/null
 
-#basic kernel info
+#Información básica del kernel
+unameinfo=`uname -a 2>/dev/null`
+if [ "$unameinfo" ]; then
+  echo -e "\e[00;31mInformación del kernel:\e[00m\n$unameinfo" |tee -a $report 2>/dev/null
+  echo -e "\n" |tee -a $report 2>/dev/null
+else
+  :
+fi
+
+procver=`cat /proc/version 2>/dev/null`
+if [ "$procver" ]; then
+  echo -e "\e[00;31mInformación del kernel (continuado):\e[00m\n$procver" |tee -a $report 2>/dev/null
+  echo -e "\n" |tee -a $report 2>/dev/null
+else
+  :
+fi
