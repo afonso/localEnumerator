@@ -1228,3 +1228,52 @@ if [ "$export" ] && [ "$readmailroot" ]; then
 else
   :
 fi
+
+#Checkeo específico - Comprobar si estamos en un docker container
+dockercontainer=`cat /proc/self/cgroup 2>/dev/null | grep -i docker 2>/dev/null; find / -name "*dockerenv*" -exec ls -la {} \; 2>/dev/null`
+if [ "$dockercontainer" ]; then
+  echo -e "\e[00;33mParece ser que estamos en un Docker container:\e[00m\n$dockercontainer" |tee -a $report 2>/dev/null
+  echo -e "\n" |tee -a $report 2>/dev/null
+else
+  :
+fi
+
+#Checkeo específico - Comprobar si somos un Docker host
+dockerhost=`docker --version 2>/dev/null; docker ps -a 2>/dev/null`
+if [ "$dockerhost" ]; then
+  echo -e "\e[00;33mParece ser que estamos en un Docker hosting:\e[00m\n$dockerhost" |tee -a $report 2>/dev/null
+  echo -e "\n" |tee -a $report 2>/dev/null
+else
+  :
+fi
+
+#Checkeo específico - Somos un miembro del docker group
+dockergrp=`id | grep -i docker 2>/dev/null`
+if [ "$dockergrp" ]; then
+  echo -e "\e[00;33mSomos miembros del grupo (docker) - Se podría abusar de estos derechos:\e[00m\n$dockergrp" |tee -a $report 2>/dev/null
+  echo -e "\n" |tee -a $report 2>/dev/null
+else
+  :
+fi
+
+#Checkeo específico - Ver si hay algún tipo de archivo docker presente
+dockerfiles=`find / -name Dockerfile -exec ls -l {} 2>/dev/null \;`
+if [ "$dockerfiles" ]; then
+  echo -e "\e[00;31m¿Algo interesante en el Dockerfile?:\e[00m\n$dockerfiles" |tee -a $report 2>/dev/null
+  echo -e "\n" |tee -a $report 2>/dev/null
+else
+  :
+fi
+
+#Checkeo Específico - Ver si hay archivos docker presentes (Esta vez buscando el docker-compose.yml)
+dockeryml=`find / -name docker-compose.yml -exec ls -l {} 2>/dev/null \;`
+if [ "$dockeryml" ]; then
+  echo -e "\e[00;31m¿Algo interesante en el docker-compose.yml?:\e[00m\n$dockeryml" |tee -a $report 2>/dev/null
+  echo -e "\n" |tee -a $report 2>/dev/null
+else
+  :
+fi
+
+echo -e "\e[00;33m### Escaneo Completo ;) ####################################\e[00m" |tee -a $report 2>/dev/null
+
+#Fin del Programa
