@@ -1,8 +1,11 @@
 #!/bin/bash
 
 #Script hecho para enumerar la información local de un host Linux. Bastante adecuado para la búsqueda de elevación de Privilegios
-#en una máquina
-
+#en una máquina.
+#
+#Las enumeraciones llevadas a cabo son las básicas aconsejables en todo sistema y las más recomendadas, focalizándome en el análisis
+#de cada una de ellas para obtener todo lo necesario.
+#
 #Copyright 2017 www.mundohackers.es
 
 #Función de Ayuda
@@ -358,7 +361,7 @@ echo -e "\e[00;33m### AMBIENTAL #######################################\e[00m" |
 #Información del ambiente
 envinfo=`env 2>/dev/null | grep -v 'LS_COLORS' 2>/dev/null`
 if [ "$envinfo" ]; then
-  echo -e "\e[00;31m Información del ambiente:\e[00m\n$envinfo" |tee -a $report 2>/dev/null
+  echo -e "\e[00;31mInformación del ambiente:\e[00m\n$envinfo" |tee -a $report 2>/dev/null
   echo -e "\n" |tee -a $report 2>/dev/null
 else
   :
@@ -418,6 +421,10 @@ fi
 
 echo -e "\e[00;33m### Trabajos/Tareas ##########################################\e[00m" |tee -a $report 2>/dev/null
 
+#En el sistema operativo Unix, cron es un administrador regular de procesos en segundo plano que ejecuta
+#procesos o guiones a intervalos regulares. Los procesos que deben ejecutarse y la hora en la que deben hacerlo
+#se especifican en el fichero crontab. Analizamos por tanto cada uno de los ficheros para sonsacar información interesante.
+
 #Comprobar si hay trabajos 'cron' configurados
 cronjobs=`ls -la /etc/cron* 2>/dev/null`
 if [ "$cronjobs" ]; then
@@ -430,7 +437,40 @@ fi
 #Comprobar si podemos manipular estos trabajos de alguna manera
 cronjobwwperms=`find /etc/cron* -perm -0002 -type f -exec ls -la {} \; -exec cat {} 2>/dev/null \;`
 if [ "$cronjobwwperms" ]; then
-  echo -e "\e[00;33m***Trabajos 'cron' con capacidad de escritura y contenido de archivos:\e[00m\n$cronjobwwperms" |tee -a $report 2>/dev/null
+  echo -e "\e[00;33m***Trabajos 'cron' con capacidad de escritura y contenido de archivos***:\e[00m\n$cronjobwwperms" |tee -a $report 2>/dev/null
+  echo -e "\n" |tee -a $report 2>/dev/null
+else
+  :
+fi
+
+#Contenidos crontab
+crontab=`cat /etc/crontab 2>/dev/null`
+if [ "$crontab" ]; then
+  echo -e "\e[00;31mContenidos crontab:\e[00m\n$crontab" |tee -a $report 2>/dev/null
+  echo -e "\n" |tee -a $report 2>/dev/null
+else
+  :
+fi
+
+crontabvar=`ls -la /var/spool/cron/crontabs 2>/dev/null`
+if [ "$crontabvar" ]; then
+  echo -e "\e[00;31mCosas interesantes en /var/spool/cron/crontabs:\e[00m\n$crontabvar" |tee -a $report 2>/dev/null
+  echo -e "\n" |tee -a $report 2>/dev/null
+else
+  :
+fi
+
+anacronjobs=`ls -la /etc/anacrontab 2>/dev/null; cat /etc/anacrontab 2>/dev/null`
+if [ "$anacronjobs" ]; then
+  echo -e "\e[00;31mTrabajos Anacron y permisos de asociación de archivos:\e[00m\n$anacronjobs" |tee -a $report 2>/dev/null
+  echo -e "\n" |tee -a $report 2>/dev/null
+else
+  :
+fi
+
+anacrontab=`ls -la /var/spool/anacron 2>/dev/null`
+if [ "$anacrontab" ]; then
+  echo -e "\e[00;31m¿Cuándo se ejecutaron los trabajos por última vez? (contenido /var/spool/anacron):\e[00m\n$anacrontab" |tee -a $report 2>/dev/null
   echo -e "\n" |tee -a $report 2>/dev/null
 else
   :
