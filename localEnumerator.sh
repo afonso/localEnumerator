@@ -108,3 +108,12 @@ if [ "$release" ]; then
 else
   :
 fi
+
+#Información del hostname en cuestión
+hostnamed=`hostname 2>/dev/null`
+if [ "$hostnamed" ]; then
+  echo -e "\e[00;31mHostname:\e[00m\n$hostnamed" |tee -a $report 2>/dev/null
+  echo -e "\n" |tee -a $report 2>/dev/null
+else
+  :
+fi
