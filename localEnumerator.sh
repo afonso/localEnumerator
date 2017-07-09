@@ -1,5 +1,6 @@
 #!/bin/bash
-#Script hecho para enumerar la información local de un host Linux
+#Script hecho para enumerar la información local de un host Linux. Bastante adecuado para la búsqueda de elevación de Privilegios
+#en una máquina
 
 #Función de Ayuda
 usage ()
@@ -32,3 +33,7 @@ while getopts "h:k:r:e:t" option; do
  esac
 done
 
+echo -e "\n\e[00;31m#####################################################################\e[00m" |tee -a $report 2>/dev/null
+echo -e "\e[00;31m#\e[00m" "\e[00;33mEnumeración Local de Linux & Script para Elevación de Privilegios\e[00m" "\e[00;31m#\e[00m" |tee -a $report 2>/dev/null
+echo -e "\e[00;31m#####################################################################\e[00m" |tee -a $report 2>/dev/null
+echo -e "\e[00;33m# www.mundohackers.es\e[00m" |tee -a $report 2>/dev/null
