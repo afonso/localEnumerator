@@ -914,7 +914,7 @@ wwguid=`find / -perm -2007 -type f -exec ls -la {} 2>/dev/null \;`
 	:
 fi
 
-#Listao de archivos guid con permisos de escritura pertenecientes a root
+#Listado de archivos guid con permisos de escritura pertenecientes a root
 if [ "$thorough" = "1" ]; then
 wwguidrt=`find / -uid 0 -perm -2007 -type f -exec ls -la {} 2>/dev/null \;`
 	if [ "$wwguidrt" ]; then
@@ -925,4 +925,59 @@ wwguidrt=`find / -uid 0 -perm -2007 -type f -exec ls -la {} 2>/dev/null \;`
 	fi
   else
 	:
+fi
+
+#Listado de todos los archivos con permisos de escritura excluyendo /proc
+if [ "$thorough" = "1" ]; then
+wwfiles=`find / ! -path "*/proc/*" -perm -2 -type f -exec ls -la {} 2>/dev/null \;`
+	if [ "$wwfiles" ]; then
+		echo -e "\e[00;31mArchivos con permisos de escritura (excluyendo /proc):\e[00m\n$wwfiles" |tee -a $report 2>/dev/null
+		echo -e "\n" |tee -a $report 2>/dev/null
+	else
+		:
+	fi
+  else
+	:
+fi
+
+if [ "$thorough" = "1" ]; then
+	if [ "$export" ] && [ "$wwfiles" ]; then
+		mkdir $format/ww-files/ 2>/dev/null
+		for i in $wwfiles; do cp --parents $i $format/ww-files/; done 2>/dev/null
+	else
+		:
+	fi
+  else
+	:
+fi
+
+#Archivos .plan accesibles en /home (Pueden contener información bastante útil)
+usrplan=`find /home -iname *.plan -exec ls -la {} \; -exec cat {} 2>/dev/null \;`
+if [ "$usrplan" ]; then
+  echo -e "\e[00;31mPermisos y contenidos de los archivos plan:\e[00m\n$usrplan" |tee -a $report 2>/dev/null
+  echo -e "\n" |tee -a $report 2>/dev/null
+else
+  :
+fi
+
+if [ "$export" ] && [ "$usrplan" ]; then
+  mkdir $format/plan_files/ 2>/dev/null
+  for i in $usrplan; do cp --parents $i $format/plan_files/; done 2>/dev/null
+else
+  :
+fi
+
+bsdusrplan=`find /usr/home -iname *.plan -exec ls -la {} \; -exec cat {} 2>/dev/null \;`
+if [ "$bsdusrplan" ]; then
+  echo -e "\e[00;31mPermisos y contenido de los archivos plan:\e[00m\n$bsdusrplan" |tee -a $report 2>/dev/null
+  echo -e "\n" |tee -a $report 2>/dev/null
+else
+  :
+fi
+
+if [ "$export" ] && [ "$bsdusrplan" ]; then
+  mkdir $format/plan_files/ 2>/dev/null
+  for i in $bsdusrplan; do cp --parents $i $format/plan_files/; done 2>/dev/null
+else
+  :
 fi
