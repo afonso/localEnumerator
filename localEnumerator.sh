@@ -676,3 +676,32 @@ if [ "$usrrcdperms" ]; then
 else
   :
 fi
+
+echo -e "\e[00;33m### Software #############################################\e[00m\n" |tee -a $report 2>/dev/null
+
+#sudo version - comprobar si existe algún tipo de vulnerabilidad conocida
+sudover=`sudo -V 2>/dev/null| grep "Sudo version" 2>/dev/null`
+if [ "$sudover" ]; then
+  echo -e "\e[00;31mSudo version:\e[00m\n$sudover" |tee -a $report 2>/dev/null
+  echo -e "\n" |tee -a $report 2>/dev/null
+else
+  :
+fi
+
+#Detalles mysql - Siempre que esté instalado
+mysqlver=`mysql --version 2>/dev/null`
+if [ "$mysqlver" ]; then
+  echo -e "\e[00;31mMYSQL version:\e[00m\n$mysqlver" |tee -a $report 2>/dev/null
+  echo -e "\n" |tee -a $report 2>/dev/null
+else
+  :
+fi
+
+#Comprobar si root/root nos vachecks to see if root/root nos proporcionará una conexión
+mysqlconnect=`mysqladmin -uroot -proot version 2>/dev/null`
+if [ "$mysqlconnect" ]; then
+  echo -e "\e[00;33m***Nos podemos conectar al servicio MYSQL local usando root/root como credenciales***\e[00m\n$mysqlconnect" |tee -a $report 2>/dev/null
+  echo -e "\n" |tee -a $report 2>/dev/null
+else
+  :
+fi
