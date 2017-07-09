@@ -981,3 +981,123 @@ if [ "$export" ] && [ "$bsdusrplan" ]; then
 else
   :
 fi
+
+#Comprobar si hay archivos .rhosts accesibles - Esto nos permite hacer login como otro usuario, etc.
+rhostsusr=`find /home -iname *.rhosts -exec ls -la {} 2>/dev/null \; -exec cat {} 2>/dev/null \;`
+if [ "$rhostsusr" ]; then
+  echo -e "\e[00;31mArchivo de configuración rhost y contenido de los archivos:\e[00m\n$rhostsusr" |tee -a $report 2>/dev/null
+  echo -e "\n" |tee -a $report 2>/dev/null
+else
+  :
+fi
+
+if [ "$export" ] && [ "$rhostsusr" ]; then
+  mkdir $format/rhosts/ 2>/dev/null
+  for i in $rhostsusr; do cp --parents $i $format/rhosts/; done 2>/dev/null
+else
+  :
+fi
+
+bsdrhostsusr=`find /usr/home -iname *.rhosts -exec ls -la {} 2>/dev/null \; -exec cat {} 2>/dev/null \;`
+if [ "$bsdrhostsusr" ]; then
+  echo -e "\e[00;31mArchivo de configuración rhost y contenido de los archivos:\e[00m\n$bsdrhostsusr" |tee -a $report 2>/dev/null
+  echo -e "\n" |tee -a $report 2>/dev/null
+else
+  :
+fi
+
+if [ "$export" ] && [ "$bsdrhostsusr" ]; then
+  mkdir $format/rhosts 2>/dev/null
+  for i in $bsdrhostsusr; do cp --parents $i $format/rhosts/; done 2>/dev/null
+else
+  :
+fi
+
+rhostssys=`find /etc -iname hosts.equiv -exec ls -la {} 2>/dev/null \; -exec cat {} 2>/dev/null \;`
+if [ "$rhostssys" ]; then
+  echo -e "\e[00;31mDetalles del archivo Hosts.equiv y contenido de los archivos: \e[00m\n$rhostssys" |tee -a $report 2>/dev/null
+  echo -e "\n" |tee -a $report 2>/dev/null
+  else
+  :
+fi
+
+if [ "$export" ] && [ "$rhostssys" ]; then
+  mkdir $format/rhosts/ 2>/dev/null
+  for i in $rhostssys; do cp --parents $i $format/rhosts/; done 2>/dev/null
+else
+  :
+fi
+
+#Listar acciones y permisos nfs, etc.
+nfsexports=`ls -la /etc/exports 2>/dev/null; cat /etc/exports 2>/dev/null`
+if [ "$nfsexports" ]; then
+  echo -e "\e[00;31mDetalles de configuración NFS: \e[00m\n$nfsexports" |tee -a $report 2>/dev/null
+  echo -e "\n" |tee -a $report 2>/dev/null
+  else
+  :
+fi
+
+if [ "$export" ] && [ "$nfsexports" ]; then
+  mkdir $format/etc-export/ 2>/dev/null
+  cp /etc/exports $format/etc-export/exports 2>/dev/null
+else
+  :
+fi
+
+#Buscando credenciales en /etc/fstab
+fstab=`cat /etc/fstab 2>/dev/null |grep username |awk '{sub(/.*\username=/,"");sub(/\,.*/,"")}1' 2>/dev/null| xargs -r echo username: 2>/dev/null; cat /etc/fstab 2>/dev/null |grep password |awk '{sub(/.*\password=/,"");sub(/\,.*/,"")}1' 2>/dev/null| xargs -r echo password: 2>/dev/null; cat /etc/fstab 2>/dev/null |grep domain |awk '{sub(/.*\domain=/,"");sub(/\,.*/,"")}1' 2>/dev/null| xargs -r echo domain: 2>/dev/null`
+if [ "$fstab" ]; then
+  echo -e "\e[00;33m***Parece ser que hay credenciales en /etc/fstab***\e[00m\n$fstab" |tee -a $report 2>/dev/null
+  echo -e "\n" |tee -a $report 2>/dev/null
+  else
+  :
+fi
+
+if [ "$export" ] && [ "$fstab" ]; then
+  mkdir $format/etc-exports/ 2>/dev/null
+  cp /etc/fstab $format/etc-exports/fstab done 2>/dev/null
+else
+  :
+fi
+
+fstabcred=`cat /etc/fstab 2>/dev/null |grep cred |awk '{sub(/.*\credentials=/,"");sub(/\,.*/,"")}1' 2>/dev/null | xargs -I{} sh -c 'ls -la {}; cat {}' 2>/dev/null`
+if [ "$fstabcred" ]; then
+    echo -e "\e[00;33m***/etc/fstab contiene un archivo de credenciales***\e[00m\n$fstabcred" |tee -a $report 2>/dev/null
+    echo -e "\n" |tee -a $report 2>/dev/null
+    else
+    :
+fi
+
+if [ "$export" ] && [ "$fstabcred" ]; then
+  mkdir $format/etc-exports/ 2>/dev/null
+  cp /etc/fstab $format/etc-exports/fstab done 2>/dev/null
+else
+  :
+fi
+
+#Utilizar la palabra clave suministrada y cat sobre archivos *.conf pra posibles coincidencias - La salida mostrará el número de linea donde dicha información relevante ha sido encontrada usando como filtro la palabra clave
+if [ "$keyword" = "" ]; then
+  echo -e "Ningun archivo *.conf ha podido ser buscado dado que no ha sido introducida ninguna palabra clave\n" |tee -a $report 2>/dev/null
+  else
+    confkey=`find / -maxdepth 4 -name *.conf -type f -exec grep -Hn $keyword {} \; 2>/dev/null`
+    if [ "$confkey" ]; then
+      echo -e "\e[00;31mBuscando palabra clave ($keyword) en archivos *.conf (recursivo de 4 niveles - salida en formato filepath:línea identificadora donde la palabra clave fue encontrada:\e[00m\n$confkey" |tee -a $report 2>/dev/null
+      echo -e "\n" |tee -a $report 2>/dev/null
+     else
+	echo -e "\e[00;31mBsucando palabra clave ($keyword) en archivos .conf (recursivo de 4 niveles):\e[00m" |tee -a $report 2>/dev/null
+	echo -e "Palabra clave '$keyword' no encontrada en los ficheros *.conf" |tee -a $report 2>/dev/null
+	echo -e "\n" |tee -a $report 2>/dev/null
+    fi
+fi
+
+if [ "$keyword" = "" ]; then
+  :
+  else
+    if [ "$export" ] && [ "$confkey" ]; then
+	  confkeyfile=`find / -maxdepth 4 -name *.conf -type f -exec grep -lHn $keyword {} \; 2>/dev/null`
+      mkdir --parents $format/keyword_file_matches/config_files/ 2>/dev/null
+      for i in $confkeyfile; do cp --parents $i $format/keyword_file_matches/config_files/ ; done 2>/dev/null
+    else
+      :
+  fi
+fi
