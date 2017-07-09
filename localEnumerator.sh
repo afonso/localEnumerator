@@ -475,3 +475,14 @@ if [ "$anacrontab" ]; then
 else
   :
 fi
+
+#Extraer nombres de cuentas de /etc/passwd y ver si algún usuario tiene algún trabajo corn asociado (priv command)
+cronother=`cat /etc/passwd | cut -d ":" -f 1 | xargs -n1 crontab -l -u 2>/dev/null`
+if [ "$cronother" ]; then
+  echo -e "\e[00;31mTrabajos realizados por todos los usuarios:\e[00m\n$cronother" |tee -a $report 2>/dev/null
+  echo -e "\n" |tee -a $report 2>/dev/null
+else
+  :
+fi
+
+echo -e "\e[00;33m### Red  ##########################################\e[00m" |tee -a $report 2>/dev/null
