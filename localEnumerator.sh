@@ -17,7 +17,7 @@ echo -e "\e[00;33m# Ejemplo: ./localEnumerator.sh -k keyword -r report -e /tmp/ 
 		echo -e "Opciones:\n"
 		echo "-k	Introducir palabra clave"
 		echo "-e	Introducir ubicación de exportación"
-		echo "-t	Incluir pruebas exhaustivas (largas)"
+		echo "-t	Incluir escaneado exhaustivo (largo)"
 		echo "-r	Introducir nombre del informe"
 		echo "-h	Mostrar este texto de ayuda"
 		echo -e "\n"
@@ -261,4 +261,61 @@ if [ "$rthmdir" ]; then
   echo -e "\n" |tee -a $report 2>/dev/null
 else
   :
+fi
+
+#Mostrar permisos en el directorio /home - comprobar - comprobar si alguno es lax
+homedirperms=`ls -ahl /home/ 2>/dev/null`
+if [ "$homedirperms" ]; then
+  echo -e "\e[00;31mPermisos del directorio /home:\e[00m\n$homedirperms" |tee -a $report 2>/dev/null
+  echo -e "\n" |tee -a $report 2>/dev/null
+else
+  :
+fi
+
+#Buscar archivos que podamos escribir los cuales no nos pertenecen
+if [ "$thorough" = "1" ]; then
+  grfilesall=`find / -writable -not -user \`whoami\` -type f -not -path "/proc/*" -exec ls -al {} \; 2>/dev/null`
+  if [ "$grfilesall" ]; then
+    echo -e "\e[00;31mArchivos no pertenecientes al usuario pero con capacidad de escritura para los grupos:\e[00m\n$grfilesall" |tee -a $report 2>/dev/null
+    echo -e "\n" |tee -a $report 2>/dev/null
+  else
+    :
+  fi
+fi
+
+#Buscar archivos legibles dentro de /home - dependiendo del número de directorios y archivos en /home esto puede tomar un tiempo... por lo que sólo está activado con el escaneo exhaustivo
+if [ "$thorough" = "1" ]; then
+wrfileshm=`find /home/ -perm -4 -type f -exec ls -al {} \; 2>/dev/null`
+	if [ "$wrfileshm" ]; then
+		echo -e "\e[00;31mArchivos legibles dentro del directorio /home:\e[00m\n$wrfileshm" |tee -a $report 2>/dev/null
+		echo -e "\n" |tee -a $report 2>/dev/null
+	else
+		:
+	fi
+  else
+	:
+fi
+
+if [ "$thorough" = "1" ]; then
+	if [ "$export" ] && [ "$wrfileshm" ]; then
+		mkdir $format/wr-files/ 2>/dev/null
+		for i in $wrfileshm; do cp --parents $i $format/wr-files/ ; done 2>/dev/null
+	else
+		:
+	fi
+  else
+	:
+fi
+
+#Listar el contenido actual del directorio home de los usuarios en el sistema
+if [ "$thorough" = "1" ]; then
+homedircontents=`ls -ahl ~ 2>/dev/null`
+	if [ "$homedircontents" ] ; then
+		echo -e "\e[00;31mContenido de los directorios home:\e[00m\n$homedircontents" |tee -a $report 2>/dev/null
+		echo -e "\n" |tee -a $report 2>/dev/null
+	else
+		:
+	fi
+  else
+	:
 fi
