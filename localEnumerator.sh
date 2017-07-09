@@ -63,3 +63,13 @@ if [ "$thorough" ]; then
 else
 	echo "Prueba minuciosa = desactivada" |tee -a $report 2>/dev/null
 fi
+
+sleep 2
+
+if [ "$export" ]; then
+  mkdir $export 2>/dev/null
+  format=$export/LinEnum-export-`date +"%d-%m-%y"`
+  mkdir $format 2>/dev/null
+else
+  :
+fi
