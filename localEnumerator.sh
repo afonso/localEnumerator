@@ -219,3 +219,28 @@ fi
 #Todas las cuentas root (uid 0)
 echo -e "\e[00;31mCuentas superusuario:\e[00m" | tee -a $report 2>/dev/null; grep -v -E "^#" /etc/passwd 2>/dev/null| awk -F: '$3 == 0 { print $1}' 2>/dev/null |tee -a $report 2>/dev/null
 echo -e "\n" |tee -a $report 2>/dev/null
+
+#Sacando información vital del archivo sudoers
+sudoers=`cat /etc/sudoers 2>/dev/null | grep -v -e '^$' 2>/dev/null |grep -v "#" 2>/dev/null`
+if [ "$sudoers" ]; then
+  echo -e "\e[00;31mConfiguración Sudoers:\e[00m$sudoers" | tee -a $report 2>/dev/null
+  echo -e "\n" |tee -a $report 2>/dev/null
+else
+  :
+fi
+
+if [ "$export" ] && [ "$sudoers" ]; then
+  mkdir $format/etc-export/ 2>/dev/null
+  cp /etc/sudoers $format/etc-export/sudoers 2>/dev/null
+else
+  :
+fi
+
+#Comprobar si podemos ser sudo sin ser necesario introducir una contraseña
+sudoperms=`echo '' | sudo -S -l 2>/dev/null`
+if [ "$sudoperms" ]; then
+  echo -e "\e[00;33m***¡¡Podemos ser sudo sin proporcionar contraseña!!***\e[00m\n$sudoperms" |tee -a $report 2>/dev/null
+  echo -e "\n" |tee -a $report 2>/dev/null
+else
+  :
+fi
