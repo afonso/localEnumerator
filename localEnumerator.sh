@@ -1,6 +1,9 @@
 #!/bin/bash
+
 #Script hecho para enumerar la información local de un host Linux. Bastante adecuado para la búsqueda de elevación de Privilegios
 #en una máquina
+
+#Copyright 2017 www.mundohackers.es
 
 #Función de Ayuda
 usage ()
@@ -160,6 +163,15 @@ fi
 hashesinpasswd=`grep -v '^[^:]*:[x]' /etc/passwd 2>/dev/null`
 if [ "$hashesinpasswd" ]; then
   echo -e "\e[00;33mParece que tenemos hashes de contraseñas en /etc/passwd!\e[00m\n$hashesinpasswd" |tee -a $report 2>/dev/null
+  echo -e "\n" |tee -a $report 2>/dev/null
+else
+  :
+fi
+
+#Localizar cuentas de usuario personalizadas con algún tipo de uids 'por defecto'
+readpasswd=`grep -v "^#" /etc/passwd | awk -F: '$3 == 0 || $3 == 500 || $3 == 501 || $3 == 502 || $3 == 1000 || $3 == 1001 || $3 == 1002 || $3 == 2000 || $3 == 2001 || $3 == 2002 { print }'`
+if [ "$readpasswd" ]; then
+  echo -e "\e[00;31mMuestras de entrada en /etc/passwd (buscando para valores uid 0, 500, 501, 502, 1000, 1001, 1002, 2000, 2001, 2002):\e[00m\n$readpasswd" |tee -a $report 2>/dev/null
   echo -e "\n" |tee -a $report 2>/dev/null
 else
   :
