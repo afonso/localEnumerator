@@ -1084,7 +1084,7 @@ if [ "$keyword" = "" ]; then
       echo -e "\e[00;31mBuscando palabra clave ($keyword) en archivos *.conf (recursivo de 4 niveles - salida en formato filepath:línea identificadora donde la palabra clave fue encontrada:\e[00m\n$confkey" |tee -a $report 2>/dev/null
       echo -e "\n" |tee -a $report 2>/dev/null
      else
-	echo -e "\e[00;31mBsucando palabra clave ($keyword) en archivos .conf (recursivo de 4 niveles):\e[00m" |tee -a $report 2>/dev/null
+	echo -e "\e[00;31mBuscando palabra clave ($keyword) en archivos .conf (recursivo de 4 niveles):\e[00m" |tee -a $report 2>/dev/null
 	echo -e "Palabra clave '$keyword' no encontrada en los ficheros *.conf" |tee -a $report 2>/dev/null
 	echo -e "\n" |tee -a $report 2>/dev/null
     fi
@@ -1097,6 +1097,60 @@ if [ "$keyword" = "" ]; then
 	  confkeyfile=`find / -maxdepth 4 -name *.conf -type f -exec grep -lHn $keyword {} \; 2>/dev/null`
       mkdir --parents $format/keyword_file_matches/config_files/ 2>/dev/null
       for i in $confkeyfile; do cp --parents $i $format/keyword_file_matches/config_files/ ; done 2>/dev/null
+    else
+      :
+  fi
+fi
+
+#Utilizar la palabra clave suministrada y cat sobre archivos *.log pra posibles coincidencias - La salida mostrará el número de linea donde dicha información relevante ha sido encontrada usando como filtro la palabra clave
+if [ "$keyword" = "" ];then
+  echo -e "Ningun archivo *.log ha podido ser buscado dado que no ha sido introducida ninguna palabra clave\n" |tee -a $report 2>/dev/null
+  else
+    logkey=`find / -name *.log -type f -exec grep -Hn $keyword {} \; 2>/dev/null`
+    if [ "$logkey" ]; then
+      echo -e "\e[00;31mBuscando palabra clave ($keyword) en archivos *.log (recursivo de 2 niveles - salida en formato filepath:línea identificadora donde la palabra clave fue encontrada:\e[00m\n$logkey" |tee -a $report 2>/dev/null
+      echo -e "\n" |tee -a $report 2>/dev/null
+     else
+	echo -e "\e[00;31mBuscando palabra clave ($keyword) en archivos .log (recursivo de 2 niveles):\e[00m" |tee -a $report 2>/dev/null
+	echo -e "Palabra clave '$keyword' no encontrada en los ficheros *.log"
+	echo -e "\n" |tee -a $report 2>/dev/null
+    fi
+fi
+
+if [ "$keyword" = "" ];then
+  :
+  else
+    if [ "$export" ] && [ "$logkey" ]; then
+      logkeyfile=`find / -name *.log -type f -exec grep -lHn $keyword {} \; 2>/dev/null`
+	  mkdir --parents $format/keyword_file_matches/log_files/ 2>/dev/null
+      for i in $logkeyfile; do cp --parents $i $format/keyword_file_matches/log_files/ ; done 2>/dev/null
+    else
+      :
+  fi
+fi
+
+#use supplied keyword and cat *.ini files for potential matches - output will show line number within relevant file path where a match has been located
+if [ "$keyword" = "" ];then
+  echo -e "Ningun archivo *.ini ha podido ser buscado dado que no ha sido introducida ninguna palabra clave\n" |tee -a $report 2>/dev/null
+  else
+    inikey=`find / -maxdepth 4 -name *.ini -type f -exec grep -Hn $keyword {} \; 2>/dev/null`
+    if [ "$inikey" ]; then
+      echo -e "\e[00;31mBuscando palabra clave ($keyword) en archivos *.ini (recursivo de 2 niveles - salida en formato filepath:línea identificadora donde la palabra clave fue encontrada:\e[00m\n$inikey" |tee -a $report 2>/dev/null
+      echo -e "\n" |tee -a $report 2>/dev/null
+     else
+	echo -e "\e[00;31mBuscando palabra clave ($keyword) en archivos *.ini (recursivo de 2 niveles):\e[00m" |tee -a $report 2>/dev/null
+	echo -e "Palabra clave '$keyword' no encontrada en los ficheros *.ini" |tee -a $report 2>/dev/null
+	echo -e "\n"
+    fi
+fi
+
+if [ "$keyword" = "" ];then
+  :
+  else
+    if [ "$export" ] && [ "$inikey" ]; then
+	  inikey=`find / -maxdepth 4 -name *.ini -type f -exec grep -lHn $keyword {} \; 2>/dev/null`
+      mkdir --parents $format/keyword_file_matches/ini_files/ 2>/dev/null
+      for i in $inikey; do cp --parents $i $format/keyword_file_matches/ini_files/ ; done 2>/dev/null
     else
       :
   fi
