@@ -199,3 +199,19 @@ if [ "$export" ] && [ "$readshadow" ]; then
 else
   :
 fi
+
+#Comprobar si el fichero /etc/master.passwd puede ser leido (BSD 'shadow' variante)
+readmasterpasswd=`cat /etc/master.passwd 2>/dev/null`
+if [ "$readmasterpasswd" ]; then
+  echo -e "\e[00;33m***El fichero master.passwd puede leerse***\e[00m\n$readmasterpasswd" |tee -a $report 2>/dev/null
+  echo -e "\n" |tee -a $report 2>/dev/null
+else
+  :
+fi
+
+if [ "$export" ] && [ "$readmasterpasswd" ]; then
+  mkdir $format/etc-export/ 2>/dev/null
+  cp /etc/master.passwd $format/etc-export/master.passwd 2>/dev/null
+else
+  :
+fi
